@@ -11,7 +11,70 @@
 
 </head>
 <body>
-    
+
+
+
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5"style="z-index: 2;">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Movie Name</h1>
+                <p id="movieRating" class="my-1">Rating</p>
+                <p id="movieDetails" class="my-1">Year | HD | Duration | Genre</p>
+                <p id="movieDescription" class="lead my-3">Movie details and further information.  Movie details and further information. Movie details and further information. Movie details and further information.  Movie details and further information. Movie details and further information. </p>
+                <p id="movieCast" class="my-1">Starring: Name Surname, Name Surname, Name Surname.</p>
+                <p id="movieCreators" class="my-1">Creators: Name Surname, Name Surname, Name Surname.</p>
+                <div class="d-grid gap-3 d-md-flex justify-content-md-start my-3">
+                    <button type="button" class="btn btn-primary btn-sm px-4">Add to Wishlist</button>
+                    <button type="button" class="btn btn-primary btn-sm px-4">Rate</button>
+                    <button type="button" class="btn btn-primary btn-sm px-4">Share<div class="playIcon"></div></button>
+                    <button type="button" class="btn btn-primary btn-sm px-4">Download</button>
+                </div>
+                <div class="d-grid gap-3 d-md-flex justify-content-md-start my-5">
+                    <button type="button" class="btn btn-primary btn-lg px-4">WATCH TRAILER <div class="playIcon"></div></button>
+                    <button type="button" class="btn btn-primary btn-lg px-4">PLAY <div class="playIcon"></div></button>
+                </div>
+            </div>
+        </div>
+        <div class="filmThumbnail" style="z-index: 2; width: 100vw; height: 100%; background-color: white;"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-6">Rent the movie on Box Office</h1>
+                <div class="box0ffice-logo my-3" style="background-color: white; height: 80px; width: 200px;"></div>
+                <p>Box office terms and conditions and the length of rent. extra informations. Box office terms and conditions and the length of rent. extra informations. Box office terms and conditions and the length of rent. extra informations.</p>
+                <h1 id="boxOfficePrice" class="my-3">R 00.00</h1>
+                <button type="button" class="btn btn-primary btn-lg px-5 py-3" onclick="rentMovie()">RENT NOW</button>
+            </div>
+            <div class="col">
+                <div class="moviePoster" style="margin: 0 auto; background-color: white; height: 400px; width: 266px;"></div>
+                <!-- <img class="moviePoster" src="" style="margin: 0 auto;"> -->
+            </div>
+        </div>
+        
+        <div class="row my-5">
+            <h1 class="display-6">Related Movies</h1>
+            <div class="col">
+                <div class="moviePoster" style="margin: 0 auto; background-color: white; height: 400px; width: 266px;"></div>
+            </div>
+            <div class="col">
+                <div class="moviePoster" style="margin: 0 auto; background-color: white; height: 400px; width: 266px;"></div>
+            </div>
+            <div class="col">
+                <div class="moviePoster" style="margin: 0 auto; background-color: white; height: 400px; width: 266px;"></div>
+            </div>
+            <div class="col">
+                <div class="moviePoster" style="margin: 0 auto; background-color: white; height: 400px; width: 266px;"></div>
+            </div>
+        </div>
+    </div>
+
+
+
 </body>
 
     <!-- Javascript -->
