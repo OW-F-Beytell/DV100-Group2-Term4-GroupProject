@@ -47,6 +47,108 @@ p{
 /* ----------------------------------------------------------------------------------*/
 /* Home Page */
 
+/* Header */
+.overlay1{
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.carousel-item1{
+    height: 90vh;
+    background-image: url("../assets/example\ carousel1.jpeg");
+    color: white;
+}
+
+.welcome{
+    padding-top: 15%;
+    padding-left: 10%;
+}
+
+.about{
+    width: 50%;
+    padding-left: 10%;
+}
+
+.movieInfo{
+    text-align: right;
+    padding-right: 15%;
+}
+
+.details{
+    width: -50%;
+}
+
+.btn-now{
+    margin-top: 5px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-now:hover{
+    cursor: pointer;
+    background-color:#404F94;
+    color: white;
+}
+
+/* Genre/Movie list */
+/* Movie Card */
+.subTitle{
+    margin-left: 6%;
+    margin-top: 5%;
+    color:#404F94;
+}
+
+.movies{
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.movie1{
+    width: 250px;
+    height: auto;
+    background-color: grey;
+    /* margin-right: 1%; */
+    margin-bottom: 40px;
+    border-radius: 2%;
+}
+
+.movie1{
+    background-image: url("../assets/Example\ movie\ poster.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay2{
+    text-align: center;
+    width: 250px;
+    height: auto;
+    background-color: #000000c7;
+    color: white;
+    border-radius: 2%;
+    margin-top: 250px;
+    margin-left: -1px;
+    opacity: 0;
+    font-family: 'Lora', serif;
+}
+
+.overlay2:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.btn-watch{
+    background-color: #404F94;
+    color: white;
+}
+
+.btn-watch:hover{
+    cursor: pointer;
+    background-color: #ED812B;
+    color: white;
+}
+
+
 /* ----------------------------------------------------------------------------------*/
 /* Movies Library Page */
 
