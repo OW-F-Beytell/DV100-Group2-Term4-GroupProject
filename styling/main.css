@@ -63,7 +63,7 @@ p{
 .btn-up{
     width: 200px;
     height: 40px;
-    font-size: 20px;;
+    font-size: 20px;
     padding-top: 3px;
     background-color:#ED812B;
     color: white;
@@ -149,7 +149,54 @@ p{
     color: white;
 }
 
+/* Individual Page*/
+.btn-trailer{
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin-top: 10px;
+    background-color:#1b30a8;
+    color: white;
+}
 
+.btn-trailer:hover{
+    cursor: pointer;
+    background-color:#2a42ca;
+    color: white;
+}
+
+.btn-play{
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin-top: 10px;
+    background-color:#1b30a8;
+    color: white;
+}
+
+.btn-play:hover{
+    cursor: pointer;
+    background-color:#2a42ca;
+    color: white;
+}
+
+.btn-rent{
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin-top: 10px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-rent:hover{
+    cursor: pointer;
+    background-color:#b1580e;
+    color: white;
+}
 
 /* ----------------------------------------------------------------------------------*/
 /* Navigation Bar */
@@ -343,6 +390,31 @@ p{
 
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
+
+.singleMovie{
+    color:#201984;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.poster{
+    width: 250px;
+    border-radius: 2%;
+}
+
+.rentMovie{
+    color:#F1F4FF;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.boxOffice{
+    width: 330px;
+    height: 130px;
+    background-image: url("../assets/boxoffice.jpeg");
+    border-radius: 2%;
+}
 
 /* ----------------------------------------------------------------------------------*/
 /* Movie Watch List Page */
