@@ -4,12 +4,28 @@
 /*Fonts*/
 /* font-family: 'Lora', serif;
 font-family: 'Sintony', sans-serif; */
+/* linear-gradient(60deg, #1549f5,  #10d46b,  #e73be1,  #d5d51b,  #4c95c9); */
 
 /* ----------------------------------------------------------------------------------*/
 /* Global Styles */
 
 body{
     background-color: #F1F4FF;
+    background-image: linear-gradient(60deg, #d7def5,  #bbc8f8,  #837ce4,  #554AE1,  #1b30a8);
+    background-size: 600% 600%;
+    animation: bgAnimatedGradient 15s infinite linear;
+}
+
+@keyframes bgAnimatedGradient{
+    0%{
+        background-position: 0 85%;
+    }
+    50%{
+        background-position: 100% 20%;
+    }
+    100%{
+        background-position: 0 85%;
+    }
 }
 
 /* Text */
@@ -90,7 +106,7 @@ p{
     color:#F1F4FF;
 }
 
-/* lOG In Page */
+/* Log In Page */
 .btn-loginForm1{
     background-color: #F1F4FF;
     color:#554AE1;
@@ -108,6 +124,9 @@ p{
 
 /* Home Page*/
 .btn-now{
+    width: 200px;
+    height: 50px;
+    text-align: center;
     margin-top: 5px;
     background-color:#ED812B;
     color: white;
@@ -220,7 +239,11 @@ p{
 /* Home Page */
 
 /* Header */
-.overlay1{
+
+.card-body1{
+    text-align: right;
+}
+/* .overlay1{
     width: 100%;
     height: auto;
     background-color: rgba(0,0,0,0.4);
@@ -229,6 +252,12 @@ p{
 .carousel-item1{
     height: 90vh;
     background-image: url("../assets/example\ carousel1.jpeg");
+    color: white;
+}
+
+.carousel-item2{
+    height: 90vh;
+    background-image: url("../assets/example\ carousel2.jpeg");
     color: white;
 }
 
@@ -249,17 +278,17 @@ p{
 
 .details{
     width: -50%;
-}
+} */
 
 
 /* Genre/Movie list */
-/* Movie Card */
 .subTitle{
     margin-left: 6%;
     margin-top: 5%;
-    color:#404F94;
+    color:#F1F4FF;
 }
 
+/* Movie Card */
 .movies{
     margin-left: 5%;
     margin-top: 3%;
