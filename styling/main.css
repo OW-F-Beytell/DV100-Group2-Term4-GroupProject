@@ -80,6 +80,37 @@ p{
 /* ----------------------------------------------------------------------------------*/
 /* Sign Up/In Page */
 
+.headercon{
+    width: 100%;
+    height: 840px;
+    background-image: url('../assets/RainyDay\ Background.jpg');
+    color: white;
+}
+
+.splash{
+    text-align: center;
+    padding-top: 20%;
+}
+
+.splash,h1{
+    font-size: 60px;
+}
+
+.btn-in{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;;
+    padding-top: 3px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-in:hover{
+    cursor: pointer;
+    background-color: #554AE1;
+    color: white;
+}
+
 /* ----------------------------------------------------------------------------------*/
 /* Home Page */
 
