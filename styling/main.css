@@ -33,7 +33,104 @@ p{
     font-weight: 400;
 }
 
+
+
+/* ----------------------------------------------------------------------------------*/
 /* Buttons */
+
+/* Navigation Bar */
+.search-btn{
+    border: 2px solid #ED812B;
+}
+
+/* Sign Up/Log In Page */
+.btn-up{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;;
+    padding-top: 3px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-up:hover{
+    cursor: pointer;
+    background-color: #554AE1;
+    color: white;
+}
+
+.btn-in{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;;
+    padding-top: 3px;
+    background-color:#554AE1;
+    color: white;
+}
+
+.btn-in:hover{
+    cursor: pointer;
+    background-color: #ED812B;
+    color: white;
+}
+
+/* Sign Up Page */
+.btn-submitForm1{
+    background-color: #F1F4FF;
+    color:#ED812B;
+}
+
+.btn-submitForm1:hover{
+    cursor: pointer;
+    background-color: #b1580e;
+    color: white;
+}
+
+.goBack{
+    color:#F1F4FF;
+}
+
+/* lOG In Page */
+.btn-loginForm1{
+    background-color: #F1F4FF;
+    color:#554AE1;
+}
+
+.btn-loginForm1:hover{
+    cursor: pointer;
+    background-color: #201984;
+    color: white;
+}
+
+.goBack{
+    color:#F1F4FF;
+}
+
+/* Home Page*/
+.btn-now{
+    margin-top: 5px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-now:hover{
+    cursor: pointer;
+    background-color:#404F94;
+    color: white;
+}
+
+.btn-watch{
+    background-color: #404F94;
+    color: white;
+}
+
+.btn-watch:hover{
+    cursor: pointer;
+    background-color: #ED812B;
+    color: white;
+}
+
+
 
 /* ----------------------------------------------------------------------------------*/
 /* Navigation Bar */
@@ -51,10 +148,6 @@ p{
     cursor: pointer;
     color: #ED812B;
     font-weight: 800;
-}
-
-.search-btn{
-    border: 2px solid #ED812B;
 }
 
 /* ----------------------------------------------------------------------------------*/
@@ -92,36 +185,6 @@ p{
     font-size: 60px;
 }
 
-.btn-up{
-    width: 200px;
-    height: 40px;
-    font-size: 20px;;
-    padding-top: 3px;
-    background-color:#ED812B;
-    color: white;
-}
-
-.btn-up:hover{
-    cursor: pointer;
-    background-color: #554AE1;
-    color: white;
-}
-
-.btn-in{
-    width: 200px;
-    height: 40px;
-    font-size: 20px;;
-    padding-top: 3px;
-    background-color:#554AE1;
-    color: white;
-}
-
-.btn-in:hover{
-    cursor: pointer;
-    background-color: #ED812B;
-    color: white;
-}
-
 /* ----------------------------------------------------------------------------------*/
 /* Sign Up Page */
 
@@ -135,17 +198,6 @@ p{
 .signupForm{
     background-color: #ED812B;
     color:#F1F4FF;
-}
-
-.btn-submitForm1{
-    background-color: #F1F4FF;
-    color:#ED812B;
-}
-
-.btn-submitForm1:hover{
-    cursor: pointer;
-    background-color: #b1580e;
-    color: white;
 }
 
 /* ----------------------------------------------------------------------------------*/
@@ -163,16 +215,6 @@ p{
     color:#F1F4FF;
 }
 
-.btn-loginForm1{
-    background-color: #F1F4FF;
-    color:#554AE1;
-}
-
-.btn-loginForm1:hover{
-    cursor: pointer;
-    background-color: #201984;
-    color: white;
-}
 
 /* ----------------------------------------------------------------------------------*/
 /* Home Page */
@@ -209,17 +251,6 @@ p{
     width: -50%;
 }
 
-.btn-now{
-    margin-top: 5px;
-    background-color:#ED812B;
-    color: white;
-}
-
-.btn-now:hover{
-    cursor: pointer;
-    background-color:#404F94;
-    color: white;
-}
 
 /* Genre/Movie list */
 /* Movie Card */
@@ -238,7 +269,6 @@ p{
     width: 250px;
     height: auto;
     background-color: grey;
-    /* margin-right: 1%; */
     margin-bottom: 40px;
     border-radius: 2%;
 }
@@ -266,18 +296,6 @@ p{
     cursor: pointer;
     opacity: 1;
 }
-
-.btn-watch{
-    background-color: #404F94;
-    color: white;
-}
-
-.btn-watch:hover{
-    cursor: pointer;
-    background-color: #ED812B;
-    color: white;
-}
-
 
 /* ----------------------------------------------------------------------------------*/
 /* Movies Library Page */

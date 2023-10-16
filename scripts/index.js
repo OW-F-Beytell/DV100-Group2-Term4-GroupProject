@@ -19,16 +19,10 @@ $(document).ready(function() {
         $(this).addClass('was-validated');
     });
 
-});
-
-
-$(document).ready(function() {
 
     //-------------------------------------------------------------------------------------------------------
     //Log In Form
     //-------------------------------------------------------------------------------------------------------
-
-    //On Submit, prevent default form submission behaviour and do this instead.
 
     $('#loginForm').submit(function(event) {
 
@@ -44,3 +38,5 @@ $(document).ready(function() {
     });
 
 });
+
+
