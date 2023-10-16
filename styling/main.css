@@ -449,6 +449,7 @@ p{
     height: 182px;
     top: 1791px;
     left: 0;
+    background-color: #404f94;
   }
   
   .movie-library-page .overlap-3 {
@@ -783,6 +784,35 @@ p{
     font-weight: 400;
     line-height: normal;
   }
+
+  .search-bar {
+    width: 181px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fff; /* Background color of the search bar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    position: absolute;
+    top: -10px;
+    left: 900px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.search-button {
+    background-color: #007BFF; /* Color of the search button */
+    color: #fff; /* Text color of the search button */
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
   
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
