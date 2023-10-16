@@ -38,6 +38,29 @@ p{
 /* ----------------------------------------------------------------------------------*/
 /* Navigation Bar */
 
+.navbar{
+    background-color: #554AE1;
+    color: #F1F4FF;
+}
+
+.nav-link{
+    color: #F1F4FF;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color: #ED812B;
+    font-weight: 800;
+}
+
+.nav-link.active{
+
+}
+
+.search-btn{
+    border: 2px solid #ED812B;
+}
+
 /* ----------------------------------------------------------------------------------*/
 /* Footer */
 
