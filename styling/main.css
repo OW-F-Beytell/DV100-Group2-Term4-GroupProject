@@ -64,6 +64,19 @@ p{
 /* ----------------------------------------------------------------------------------*/
 /* Footer */
 
+.footer{
+    background-color: #554AE1;
+    color:#F1F4FF;
+    margin: 0 auto;
+    /* padding-left: 10%; */
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.footerLogo{
+   padding-left: 7%;
+}
+
 /* ----------------------------------------------------------------------------------*/
 /* Sign Up/In Page */
 
