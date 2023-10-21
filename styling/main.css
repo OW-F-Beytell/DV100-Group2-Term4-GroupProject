@@ -548,6 +548,7 @@ p{
   height: 182px;
   top: 1791px;
   left: 0;
+  color: #404F94;
 }
 
 /* Styling for .movie-library-page .overlap-3 */
@@ -563,6 +564,7 @@ p{
   height: 182px;
   top: 0;
   left: 0;
+  color: #404F94;
 }
 
 /* Styling for .movie-library-page .LOGO */
@@ -570,10 +572,80 @@ p{
   position: absolute;
   width: 70px;
   height: 70px;
-  top: 56px;
-  left: 69px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.box {
+  position: relative;
+  width: 184px;
+  height: 96px;
+  left: 135px;
+  bottom: -40px;
+}
+
+  .box .group {
+    position: fixed;
+    width: 192px;
+    height: 96px;
+    top: 0;
+    left: 0;
+    }
+    .box .footerlink1 {
+    width: 80px;
+    top: 0;
+    position: absolute;
+    height: 21px;
+    left: 0;
+    font-family: "Sintony-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    line-height: normal;
+    }
+    .box .footerlink2 {
+    width: 184px;
+    top: 75px;
+    position: absolute;
+    height: 21px;
+    left: 0;
+    font-family: "Sintony-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    line-height: normal;
+    }
+    .box .footerlink3 {
+    width: 151px;
+    top: 50px;
+    position: absolute;
+    height: 21px;
+    left: 0;
+    font-family: "Sintony-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    line-height: normal;
+    }
+    .box .footerlink4 {
+      width: 91px;
+      top: 25px;
+      position: absolute;
+      height: 21px;
+      left: 0;
+      font-family: "Sintony-Regular", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: 0.32px;
+      line-height: normal;
+      }
+
+      
 /* Styling for .movie-library-page .divider */
 .movie-library-page .divider {
   position: absolute;

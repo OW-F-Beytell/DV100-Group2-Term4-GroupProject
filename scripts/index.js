@@ -1,36 +1,59 @@
+// Define an array of movie objects
+const movies = [
+    {
+      title: "Movie 1",
+      genre: "Action",
+      description: "Description for Movie 1",
+      watchNow: 1,
+    },
+    {
+      title: "Movie 2",
+      genre: "Horror",
+      description: "Description for Movie 2",
+      watchNow: 2,
+    },
+    // Add 23 more movies here with similar structure
+  ];
 
-//------------------------------------
-// Movie Library js//
+  // Function to generate movie cards
+  function generateMovieCards() {
+    const movieLibrary = document.querySelector(".movie-library-page");
+    for (let i = 0; i < movies.length; i++) {
+      const movie = movies[i];
+      const movieCard = document.createElement("div");
+      movieCard.classList.add("group");
+      movieCard.id = `moviecard${i + 1}`;
 
-const moviecard1 = [
-    { name: "The Fast and Furious", info: "This is the first movie" },
-    { name: "Movie 2", info: "Another exciting movie" },
-    { name: "Movie 3", info: "Don't miss this one!" }
-];
+      const movieDetails = document.createElement("div");
+      movieDetails.classList.add("group-2");
 
-// Function to populate movie cards
-function populateMovieCards() {
-    const movieCardsContainer = document.getElementById("movie-cards-container");
+      const overlapGroup = document.createElement("div");
+      overlapGroup.classList.add("overlap-group");
 
-    movies.forEach((movie, index) => {
-        const movieCard = document.createElement("div");
-        movieCard.className = "movie-card";
-        movieCard.innerHTML = `
-            <div class="movie-info">
-                <h2 class="movie-name">${movie.name}</h2>
-                <p class="movie-description">${movie.info}</p>
-            </div>
-            <button class="watch-now-button" onclick="watchNow(${index})">WATCH NOW</button>
-        `;
+      const movieTitle = document.createElement("div");
+      movieTitle.classList.add("text-wrapper-4");
+      movieTitle.textContent = movie.title;
 
-        movieCardsContainer.appendChild(movieCard);
-    });
-}
+      const movieDescription = document.createElement("p");
+      movieDescription.classList.add("text-wrapper-3");
+      movieDescription.textContent = movie.description;
 
-// Function to simulate "WATCH NOW" button action
-function watchNow(index) {
-    alert(`You clicked the 'WATCH NOW' button for Movie ${index + 1}`);
-}
+      overlapGroup.appendChild(movieTitle);
+      overlapGroup.appendChild(movieDescription);
 
-// Call the function to populate movie cards
-populateMovieCards();
+      const watchNowButton = document.createElement("div");
+      watchNowButton.classList.add("frame-4");
+      watchNowButton.classList.add("link-2");
+      watchNowButton.textContent = "WATCH NOW";
+      watchNowButton.setAttribute("onclick", `watchNow(${movie.watchNow})`);
+
+      movieDetails.appendChild(overlapGroup);
+      movieDetails.appendChild(watchNowButton);
+
+      movieCard.appendChild(movieDetails);
+      movieLibrary.appendChild(movieCard);
+    }
+  }
+
+  // Call the function to generate movie cards
+  generateMovieCards();
