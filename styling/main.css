@@ -111,7 +111,9 @@ p{
 /* Home Page */
 
 /* ----------------------------------------------------------------------------------*/
-/* Original styles from the first set */
+/* Movie Library */
+
+/* Reset some Bootstrap defaults */
 .movie-library-page {
   background-color: #c7d1ff;
   display: flex;
@@ -846,9 +848,58 @@ p{
   font-weight: 400;
   line-height: normal;
 }
-.footer{
-  color: #404f94;
+
+:root {
+  --surface: rgba(255, 255, 255, 1);
 }
+
+
+/* Template */
+.group {
+  width: 100%;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.overlap-group {
+  flex: 1;
+  padding: 10px;
+}
+
+.text-wrapper-3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.text-wrapper-4 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.frame-4 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.link-2 {
+  text-align: center;
+}
+
+/* Styling the 'WATCH NOW' button */
+.link-2:hover {
+  background-color: #0056b3;
+}
+
 
 /* Media queries for changing card title font size */
 @media (min-width: 500px) {
