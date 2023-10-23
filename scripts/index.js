@@ -1,197 +1,54 @@
-// Define an array of movie objects
-const movies = [
-    {
-      title: "Movie 1",
-      genre: "Action",
-      description: "Description for Movie 1",
-      watchNow: 1,
-    },
-    {
-      title: "Movie 2",
-      genre: "Horror",
-      description: "Description for Movie 2",
-      watchNow: 2,
-    },
-    {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      {
-        title: "Movie 2",
-        genre: "Horror",
-        description: "Description for Movie 2",
-        watchNow: 2,
-      },
-      
+$(document).ready(function () {
+    // Sample movie data for demonstration
+    const movies = [
+        {
+            title: "Movie 1",
+            year: 2023,
+            genre: "Action",
+            imdbScore: 8.5,
+            imageUrl: "movie1.jpg",
+        },
+        {
+            title: "Movie 2",
+            year: 2022,
+            genre: "Sci-Fi",
+            imdbScore: 9.0,
+            imageUrl: "movie2.jpg",
+        },
+        // Add more movie data here
     ];
 
-  // Function to generate movie cards
-  function generateMovieCards() {
-    const movieLibrary = document.querySelector(".movie-library-page");
-    for (let i = 0; i < movies.length; i++) {
-      const movie = movies[i];
-      const movieCard = document.createElement("div");
-      movieCard.classList.add("group");
-      movieCard.id = `moviecard${i + 1}`;
+    // Function to populate movie cards
+    function populateMovieCards() {
+        const movieList = $('#movie-list');
+        movieList.empty();
 
-      const movieDetails = document.createElement("div");
-      movieDetails.classList.add("group-2");
+        for (let i = 0; i < movies.length; i++) {
+            const movie = movies[i];
 
-      const overlapGroup = document.createElement("div");
-      overlapGroup.classList.add("overlap-group");
+            const movieCard = $('<div class="movie-card">');
+            const movieImage = $(`<img src="${movie.imageUrl}" alt="${movie.title}">`);
+            const movieDetails = $('<div class="movie-details">');
 
-      const movieTitle = document.createElement("div");
-      movieTitle.classList.add("text-wrapper-4");
-      movieTitle.textContent = movie.title;
+            movieDetails.append(`<h3>${movie.title}</h3>`);
+            movieDetails.append(`<p>Year: ${movie.year}</p>`);
+            movieDetails.append(`<p>Genre: ${movie.genre}</p>`);
+            movieDetails.append(`<p>IMDB Score: ${movie.imdbScore}</p>`);
+            // Add buttons for individual movie page and watchlist
 
-      const movieDescription = document.createElement("p");
-      movieDescription.classList.add("text-wrapper-3");
-      movieDescription.textContent = movie.description;
-
-      overlapGroup.appendChild(movieTitle);
-      overlapGroup.appendChild(movieDescription);
-
-      const watchNowButton = document.createElement("div");
-      watchNowButton.classList.add("frame-4");
-      watchNowButton.classList.add("link-2");
-      watchNowButton.textContent = "WATCH NOW";
-      watchNowButton.setAttribute("onclick", `watchNow(${movie.watchNow})`);
-
-      movieDetails.appendChild(overlapGroup);
-      movieDetails.appendChild(watchNowButton);
-
-      movieCard.appendChild(movieDetails);
-      movieLibrary.appendChild(movieCard);
+            movieCard.append(movieImage);
+            movieCard.append(movieDetails);
+            movieList.append(movieCard);
+        }
     }
-  }
 
-  // Call the function to generate movie cards
-  generateMovieCards();
+    // Sample initial movie population
+    populateMovieCards();
+
+    // Add event listeners for filter options and update the movie list
+    $('#genre, #year, #imdb-score').change(function () {
+        // Implement filtering logic based on user selections
+        // Update the movies array with filtered data
+        // Call populateMovieCards() to display the filtered movies
+    });
+});

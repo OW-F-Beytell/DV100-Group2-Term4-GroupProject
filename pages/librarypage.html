@@ -1,90 +1,94 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Umbrella Cinema: Movie Library</title>
-  
-      <!-- Style Sheet -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <link rel="stylesheet" href="../styling/main.css">
-  
-    </head>
-    <body>
-      <nav class="navbar navbar-expand-lg" style="background-color: #3C5099;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="library.css">
+    <title>Movie Library</title>
+</head>
+<body>
+    <!-- Navigation bar (navbar) -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #3C5099;">
         <div class="container-fluid">
-          <img src="#">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../pages/homepage.html" style="color: white;">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/librarypage.html" style="color: white;">Movie Library</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/watchlistpage.html" style="color: white;">Watchlist</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
+            <img src="#" alt="Logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../pages/homepage.html" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/librarypage.html" style="color: white;">Movie Library</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class "nav-link" href="../pages/watchlistpage.html" style="color: white;">Watchlist</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
         </div>
-      </nav>
-        <div class="movie-library-page">
-            <div class="div">
-                <div class="text-wrapper">Movie Library</div>
-                <p class="p">
-                    Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is
-                    just a click away!
-                </p>
-                <div class="frame"><div class="link">Action</div></div>
-                <div class="link-wrapper"><div class="link">Horror</div></div>
-                <div class="div-wrapper"><div class="link">Sci-Fi</div></div>
-                <div class="frame-2"><div class="link">Comedy</div></div>
-                <div class="frame-3"><div class="link">Romance</div></div>
-                <div class="text-wrapper-2">Genres</div>
-               
-               
-                <div class="group" id="moviecard1">
-                    <div class="group-2">
-                        <div class="overlap-group">
-                          <div class="text-wrapper-4">The Fast and Furious</div>
-                            <p class="text-wrapper-3">Movie details and further information</p>
-                        </div>
-                        <div class="frame-4"><div class="link-2" onclick="watchNow(1)">WATCH NOW</div></div>
-                    </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Filter options go here -->
+        <div id="filter-options">
+            <label for="genre">Genre:</label>
+            <select id="genre">
+                <option value="All Movies">All Movies</option>
+                <option value="Action">Action</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Romance">Romance</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Horror">Horror</option>
+            </select>
+
+            <label for="year">Year:</label>
+            <select id="year">
+                <!-- Populate with dynamic options based on available years -->
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+            </select>
+
+            <label for="imdb-score">IMDB Score:</label>
+            <select id="imdb-score">
+                <option value="All">All</option>
+                <option value="9+">9+</option>
+                <option value="8+">8+</option>
+                <option value="7+">7+</option>
+            </select>
+        </div>
+
+        <div id="movie-list" class="movie-list">
+            <!-- Movie cards will be generated dynamically using JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="overlap-3 background">
+                <img class="LOGO" src="../assets/Cinema Logo Secondary.png" alt="Cinema Logo">
+                <div class="box group">
+                    <div class="footerlink1">About Us</div>
+                    <div class="footerlink2">Terms and Conditions</div>
+                    <div class="footerlink3">Contact Us</div>
+                    <div class="footerlink4">Learn More</div>
                 </div>
+            </div>
+        </div>
+    </footer>
 
-                
-              
-               
-               
-
-                <footer>
-                  <div class="footer">
-                    <div class="overlap-3" class="background">
-                      <img class="LOGO" src="#" alt="Cinema Logo" />
-                      <div class="box" class="group">
-                        <div class="footerlink1">About Us</div>
-                        <div class="footerlink2">Terms and Conditions</div>
-                        <div class="footerlink3">Contact Us</div>
-                        <div class="footerlink4">Learn More</div>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
-    </body>
-
-      <!-- Javascript -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-      <script src="../scripts/index.js"></script>  
-
+   <!-- Javascript -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+   <script src="../scripts/index.js"></script>  
+</body>
 </html>

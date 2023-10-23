@@ -111,159 +111,65 @@ p{
 /* Home Page */
 
 /* ----------------------------------------------------------------------------------*/
-/* Movie Library */
-.movie-library-page {
-  background-color: #c7d1ff;
-  display: flex;
-  flex-direction: column; /* Change to column */
-  align-items: center; /* Center items vertically */
+/* Global Styles */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Movie Card Styles */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.movie-card {
   width: 100%;
-}
-
-/* Styling for .movie-library-page .div */
-.movie-library-page .div-wrapper { /* Change to .div-wrapper */
-  background-color: #c7d1ff;
-  overflow: hidden;
-  width: 1512px;
-  height: 1973px;
-  position: relative;
-}
-
-/* Styling for .movie-library-page .text-wrapper */
-.movie-library-page .text-wrapper {
-  width: 685px;
-  height: 70px;
-  top: 145px;
-  left: 413px;
-  font-size: 48px;
-  position: absolute;
-  font-family: "Lora-Medium", Helvetica;
-  font-weight: 500;
-  color: #000000;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: 15.6px;
-}
-
-/* Styling for .movie-library-page .p */
-.movie-library-page .p {
-  position: absolute;
-  width: 776px;
-  height: 116px;
-  top: 222px;
-  left: 368px;
-  font-family: "Lora-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: 33px;
-}
-
-/* Styling for .movie-library-page .frame */
-.movie-library-page .frame {
-  width: 232px;
-  height: 54px;
-  top: 393px;
-  left: 100px;
-  background-color: #ea9653;
-  border: 1px solid;
-  border-color: #f17411;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 19px 20px;
-  position: absolute;
+  flex-direction: column;
 }
 
-/* Styling for .movie-library-page .link */
-.movie-library-page .link {
-  position: relative;
-  width: fit-content;
-  margin-top: -6.5px;
-  margin-bottom: -4.5px;
-  font-family: "Sintony-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0.4px;
-  line-height: normal;
+.movie-card img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Styling for .movie-library-page .link-wrapper */
-.movie-library-page .link-wrapper {
-  width: 232px;
-  height: 54px;
-  top: 393px;
-  left: 564px;
-  background-color: #ea9653;
-  border: 1px solid;
-  border-color: #f17411;
+.movie-details {
+  padding: 10px;
+  flex-grow: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 19px 20px;
-  position: absolute;
+  flex-direction: column;
 }
 
-/* Styling for .movie-library-page .div-wrapper */
-.movie-library-page .div-wrapper {
-  width: 232px;
-  height: 54px;
-  top: 393px;
-  left: 1028px;
-  background-color: #ea9653;
-  border: 1px solid;
-  border-color: #f17411;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 19px 20px;
-  position: absolute;
+/* Filter Options Styles */
+#filter-options {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-/* Styling for .movie-library-page .frame-2 */
-.movie-library-page .frame-2 {
-  display: flex;
-  width: 232px;
-  height: 54px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 19px 20px;
-  position: absolute;
-  top: 393px;
-  left: 332px;
-  background-color: #ea9653;
-  border: 1px solid;
-  border-color: #f17411;
+#filter-options label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-/* Styling for .movie-library-page .frame-3 */
-.movie-library-page .frame-3 {
-  width: 232px;
-  height: 54px;
-  top: 393px;
-  left: 796px;
-  background-color: #ea9653;
-  border: 1px solid;
-  border-color: #f17411;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 19px 20px;
-  position: absolute;
+#filter-options select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
-/* ... (continue with other styles) */
 
-
-    
-    
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
 
