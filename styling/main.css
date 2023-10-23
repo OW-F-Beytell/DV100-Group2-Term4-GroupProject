@@ -548,7 +548,6 @@ p{
   height: 182px;
   top: 1791px;
   left: 0;
-  color: #404F94;
 }
 
 /* Styling for .movie-library-page .overlap-3 */
@@ -582,7 +581,7 @@ p{
   width: 184px;
   height: 96px;
   left: 135px;
-  bottom: -40px;
+  bottom: -50px;
 }
 
   .box .group {

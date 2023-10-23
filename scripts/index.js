@@ -12,8 +12,146 @@ const movies = [
       description: "Description for Movie 2",
       watchNow: 2,
     },
-    // Add 23 more movies here with similar structure
-  ];
+    {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      {
+        title: "Movie 2",
+        genre: "Horror",
+        description: "Description for Movie 2",
+        watchNow: 2,
+      },
+      
+    ];
 
   // Function to generate movie cards
   function generateMovieCards() {
