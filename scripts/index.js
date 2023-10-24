@@ -66,3 +66,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const removeButtons = document.querySelectorAll(".remove-button");
+
+  function removeCardFromLocalStorage(title) {
+      const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist = watchlist.filter((item) => item.title !== title);
+      localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+  }
+
+  removeButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+          const card = this.closest(".custom-col");
+          const title = card.querySelector("h3").textContent;
+
+          removeCardFromLocalStorage(title);
+          card.remove();
+
+      });
+  });
+});
