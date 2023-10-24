@@ -197,8 +197,9 @@ p{
     line-height: 33px;
   }
   
-  .movie-library-page .frame {
-    width: 232px;
+  /* Filters */
+  .movie-library-page .filter1 {
+    width: 170px;
     height: 54px;
     top: 393px;
     left: 100px;
@@ -212,7 +213,141 @@ p{
     padding: 19px 20px;
     position: absolute;
   }
+
+  .movie-library-page .filter2 {
+    width: 170px;
+    height: 54px;
+    top: 393px;
+    left: 463px;
+    background-color: #ea9653;
+    border: 1px solid;
+    border-color: #f17411;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 19px 20px;
+    position: absolute;
+  }
+
+  .movie-library-page .filter3 {
+    width: 170px;
+    height: 54px;
+    top: 393px;
+    left: 820px;
+    background-color: #ea9653;
+    border: 1px solid;
+    border-color: #f17411;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 19px 20px;
+    position: absolute;
+  }
   
+  .movie-library-page .filter4 {
+    display: flex;
+    width: 170px;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 19px 20px;
+    position: absolute;
+    top: 393px;
+    left: 280px;
+    background-color: #ea9653;
+    border: 1px solid;
+    border-color: #f17411;
+  }
+
+  .movie-library-page .filter5 {
+    width: 170px;
+    height: 54px;
+    top: 393px;
+    left: 645px;
+    background-color: #ea9653;
+    border: 1px solid;
+    border-color: #f17411;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 19px 20px;
+    position: absolute;
+  }
+
+  .movie-library-page .filter-section {
+    width: 170px;
+    height: 54px;
+    top: 393px;
+    left: 796px;
+    background-color: #ea9653;
+    border: 1px solid;
+    border-color: #f17411;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 19px 20px;
+    position: absolute;
+}
+
+  /* Style the labels inside the filter section */
+.movie-library-page .filter-section label {
+  color: #fff; /* Text color */
+  font-weight: bold;
+}
+
+/* Style the select element inside the filter section */
+.movie-library-page .filter-section select {
+  background-color: #fff; /* Background color for select element */
+  color: #333; /* Text color for select element */
+  border: 1px solid #ddd; /* Border for select element */
+  padding: 8px;
+}
+
+/* Style the input element inside the filter section */
+.movie-library-page .filter-section input[type="number"] {
+  background-color: #fff; /* Background color for input element */
+  color: #333; /* Text color for input element */
+  border: 1px solid #ddd; /* Border for input element */
+  padding: 8px;
+}
+
+/* Style the "Apply Filters" button inside the filter section */
+.movie-library-page .filter-section button#apply-filters {
+  background-color: #f17411; /* Button background color */
+  color: #fff; /* Text color for the button */
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Change button background color on hover */
+.movie-library-page .filter-section button#apply-filters:hover {
+  background-color: #ff9600;
+}
+
+
+  .movie-library-page .genres {
+    position: absolute;
+    width: 141px;
+    height: 45px;
+    top: 347px;
+    left: 100px;
+    font-family: "Lora-Medium", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 15.6px;
+  }
+
+  
+
   .movie-library-page .link {
     position: relative;
     width: fit-content;
@@ -710,16 +845,6 @@ p{
     left: 0;
   }
   
-  .movie-library-page .naviation-right {
-    position: absolute;
-    width: 1512px;
-    height: 64px;
-    top: 0;
-    left: 0;
-    background-image: url(./img/background.svg);
-    background-size: 100% 100%;
-  }
-  
   .movie-library-page .dv-t-LOGO {
     position: absolute;
     width: 130px;
@@ -885,6 +1010,10 @@ p{
     font-weight: 400;
     line-height: normal;
   }
+
+  /* filter */
+
+
   
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
