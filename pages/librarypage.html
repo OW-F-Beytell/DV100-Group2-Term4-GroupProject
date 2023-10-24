@@ -3,159 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umbrella Cinema: Movie Library Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styling/main.css"> <!-- Add your CSS file link here -->
 
-    <!-- Style Sheet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styling/main.css">
-
+    <title>Movie Library</title>
 </head>
 <body>
-  <div class="movie-library-page">
-    <div class="div">
-      <div class="text-wrapper">Movie Library</div>
-      <p class="p">
-        Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is
-        just a click away!
-      </p>
-<<<<<<< Updated upstream
-      <div class="frame">
-        <div class="link">Action</div>
-      </div>
-      <div class="link-wrapper">
-        <div class="link">Horror</div>
-      </div>
-      <div class="div-wrapper">
-        <div class="link">Sci-Fi</div>
-      </div>
-      <div class="frame-2">
-        <div class="link">Comedy</div>
-      </div>
-      <div class="frame-3">
-        <div class="link">Romance</div>
-      </div>
-      <div class="text-wrapper-2">Genres</div>
-      
-      <!-- Filters for IMDb rating and movie release year -->
-      <div class="filter-section">
-        <label for="imdb-rating">IMDb Rating:</label>
-        <select id="imdb-rating">
-          <option value="0">Any</option>
-          <option value="7">7+</option>
-          <option value="8">8+</option>
-          <option value="9">9+</option>
-        </select>
-      
-        <label for="release-year">Release Year:</label>
-        <input type="number" id="release-year" placeholder="Year">
-        
-        <button id="apply-filters">Apply Filters</button>
-      </div>
-      
-      <div class="group">
-        <div class="group-2">
-          <div class="overlap-group">
-            <p class="text-wrapper-3">Movie details and further information</p>
-            <div class="text-wrapper-4">Movie Name</div>
-          </div>
-          <div class="frame-4"><div class="link-2">WATCH NOW</div></div>
-        </div>
-=======
-      <div class="genres">Genres</div>
-      <div class="filter1">
-        <div class="link">Action</div>
->>>>>>> Stashed changes
-      </div>
-      <div class="filter2">
-        <div class="link">Comedy Romance</div>
-      </div>
-      <div class="filter3">
-        <div class="link">Horror Sci-Fi</div>
-      </div>
-      <div class="filter4">
-        <div class="link">Romance</div>
-      </div>
-      <div class="filter5">
-        <div class="link">Sci-Fi</div>
-      </div>
-      
-      <!-- Filters for IMDb rating and movie release year -->
-      <div class="filter-section">
-        <label for="imdb-rating">IMDb Rating:</label>
-        <select id="imdb-rating">
-          <option value="0">Any</option>
-          <option value="7">7+</option>
-          <option value="8">8+</option>
-          <option value="9">9+</option>
-        </select>
-      
-        <label for="release-year">Release Year:</label>
-        <input type="number" id="release-year" placeholder="Year">
-        
-        <button class="" id="apply-filters">Apply Filters</button>
-      </div>
-
-     
-     <!-- Movies -->
-        
-
-  <!-- Add more movies here as needed -->
-</div>
-
-      <div class="footer">
-        <div class="overlap-3">
-          <img class="background"/>
-          <img class="LOGO" src="../assets/Cinema Logo Secondary.png" />
-          <div class="link-3">About Us</div>
-          <div class="link-4">Terms and Conditions</div>
-          <div class="link-5">Contact Us</div>
-          <div class="link-6">Learn More</div>
-        </div>
-      </div>
-      <div class="overlap-4">
-        <div class="naviation-right">
-          <img class="dv-t-LOGO" src="img/dv100-t4-LOGO-03-1.png" />
-          <div class="group-13">
-            <div class="group-14">
-              <div class="link-11">Home</div>
-              <div class="link-12">Movie Library</div>
-              <div class="link-13">Watch List</div>
-            </div>
-          </div>
-          <button class="button-search">
-            <div class="text-wrapper-6">Search</div>
-            <div class="trailing-icon"></div>
-            <img class="search-icon" src="img/image.png" />
-          </button>
-        </div>
-        <div class="naviation-right-2">
-          <div class="overlap-5">
-            <img class="dv-t-LOGO" src="img/dv100-t4-LOGO-03-1.jpg" />
-            <div class="group-13">
-              <div class="group-14">
-                <div class="link-14">Home</div>
-                <div class="link-15">Movie Library</div>
-                <div class="link-16">Watch List</div>
-              </div>
-            </div>
-            <button class="button-search">
-              <div class="text-wrapper-6">Search</div>
-              <div class="trailing-icon"></div>
-              <img class="search-icon" src="img/search-icon.png" />
-            </button>
-          </div>
-        </div>
+  <nav class="navbar navbar-expand-lg" style="background-color: #3C5099;">
+    <div class="container-fluid">
+      <img class="logo" src="../assets/Cinema Logo Main.png">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Watchlist</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
       </div>
     </div>
-  </div>
-</body>
+  </nav>
 
-    <!-- Javascript -->
+    <!-- Filter section -->
+    <div class="container">
+
+            <section class="movie-library">
+              <div class="movie-library-content">
+                <h2 class="section-title">Movie Library</h2>
+                <p class="section-description">Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is just a click away!</p>
+            
+                <div class="filters">
+                  <div class="filter">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                      <option value="all">All Genres</option>
+                      <option value="action">Action</option>
+                      <option value="comedy">Comedy</option>
+                      <option value="comedy">Horror</option>
+                      <option value="comedy">Sci-Fi</option>
+                      <option value="comedy">Romance</option>
+                      <!-- Add more genre options here -->
+                    </select>
+                  </div>
+            
+                  <div class="filter">
+                    <label for="year">Year</label>
+                    <select id="year" name="year">
+                      <option value="all">All Years</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2022">2015</option>
+                      <option value="2015">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+
+                      <!-- Add more year options here -->
+                    </select>
+                  </div>
+            
+                  <div class="filter">
+                    <label for="imdb">IMDB Score</label>
+                    <input type="number" id="imdb" name="imdb" min="0" max="10" step="0.1" placeholder="Min">
+                    <span class="separator">-</span>
+                    <input type="number" id="imdb" name="imdb" min="0" max="10" step="0.1" placeholder="Max">
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="col-md-9">
+                <!-- Movie options container (5x5 layout) -->
+                <div id="movie-container" class="row">
+                    <!-- Movie cards will be dynamically generated here -->
+                    <!-- Each card will have movie name, info, buttons, and IMDb score -->
+                    <!-- Example card structure -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card">
+                                    <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Movie Name</h5>
+                                        <p class="card-text">Movie Info</p>
+                                        <p class="card-text">IMDB Score: 8.5</p>
+                                        <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                                        <button class="btn btn-secondary">Watch Movie</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                              <div class="card">
+                                  <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Movie Name</h5>
+                                      <p class="card-text">Movie Info</p>
+                                      <p class="card-text">IMDB Score: 8.5</p>
+                                      <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                                      <button class="btn btn-secondary">Watch Movie</button>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-md-3 mb-3">
+                            <div class="card">
+                                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Movie Name</h5>
+                                    <p class="card-text">Movie Info</p>
+                                    <p class="card-text">IMDB Score: 8.5</p>
+                                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                                    <button class="btn btn-secondary">Watch Movie</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                          <div class="card">
+                              <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                              <div class="card-body">
+                                  <h5 class="card-title">Movie Name</h5>
+                                  <p class="card-text">Movie Info</p>
+                                  <p class="card-text">IMDB Score: 8.5</p>
+                                  <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                                  <button class="btn btn-secondary">Watch Movie</button>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Movie Name</h5>
+                                <p class="card-text">Movie Info</p>
+                                <p class="card-text">IMDB Score: 8.5</p>
+                                <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                                <button class="btn btn-secondary">Watch Movie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <div class="card">
+                          <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                          <div class="card-body">
+                              <h5 class="card-title">Movie Name</h5>
+                              <p class="card-text">Movie Info</p>
+                              <p class="card-text">IMDB Score: 8.5</p>
+                              <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                              <button class="btn btn-secondary">Watch Movie</button>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Movie Name</h5>
+                            <p class="card-text">Movie Info</p>
+                            <p class="card-text">IMDB Score: 8.5</p>
+                            <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                            <button class="btn btn-secondary">Watch Movie</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                      <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                      <div class="card-body">
+                          <h5 class="card-title">Movie Name</h5>
+                          <p class="card-text">Movie Info</p>
+                          <p class="card-text">IMDB Score: 8.5</p>
+                          <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                          <button class="btn btn-secondary">Watch Movie</button>
+                      </div>
+                  </div>
+              </div>
+
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                      <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                      <div class="card-body">
+                          <h5 class="card-title">Movie Name</h5>
+                          <p class="card-text">Movie Info</p>
+                          <p class="card-text">IMDB Score: 8.5</p>
+                          <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                          <button class="btn btn-secondary">Watch Movie</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Movie Name</h5>
+                        <p class="card-text">Movie Info</p>
+                        <p class="card-text">IMDB Score: 8.5</p>
+                        <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                        <button class="btn btn-secondary">Watch Movie</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                  <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                  <div class="card-body">
+                      <h5 class="card-title">Movie Name</h5>
+                      <p class="card-text">Movie Info</p>
+                      <p class="card-text">IMDB Score: 8.5</p>
+                      <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                      <button class="btn btn-secondary">Watch Movie</button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="movie-image.jpg" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Name</h5>
+                    <p class="card-text">Movie Info</p>
+                    <p class="card-text">IMDB Score: 8.5</p>
+                    <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                    <button class="btn btn-secondary">Watch Movie</button>
+                </div>
+            </div>
+          </div>
+
+                    <!-- Repeat this card structure for each movie -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+      <div class="overlap-3">
+        <img class="background" src="img/background-3.svg" alt="Background Image" />
+        <img class="LOGO" src="../assets/Cinema Logo Secondary.png" alt="Logo" />
+        <div class="link-3">About Us</div>
+        <div class="link-4">Terms and Conditions</div>
+        <div class="link-5">Contact Us</div>
+        <div class="link-6">Learn More</div>
+      </div>
+    </footer>
+    
+
+    <!-- JavaScript and jQuery scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="../scripts/index.js"></script>  
+    <script src="../scripts/index.js"></script>
 
-    
+    <script>
+        // Your JavaScript code for dynamic movie generation and filtering
+        // Implement code to fetch movies using an API and update the #movie-container
+        // based on the selected filter criteria.
+    </script>
+</body>
 </html>

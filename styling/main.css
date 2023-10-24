@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Pacifico&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Sintony:wght@400;700&display=swap');
 
 
@@ -38,6 +39,11 @@ p{
 /* ----------------------------------------------------------------------------------*/
 /* Navigation Bar */
  
+  .logo{
+    width: 145px;
+    height: 70px;
+  }
+
 /* ----------------------------------------------------------------------------------*/
 /* Footer */
 
@@ -197,9 +203,8 @@ p{
     line-height: 33px;
   }
   
-  /* Filters */
-  .movie-library-page .filter1 {
-    width: 170px;
+  .movie-library-page .frame {
+    width: 232px;
     height: 54px;
     top: 393px;
     left: 100px;
@@ -213,141 +218,7 @@ p{
     padding: 19px 20px;
     position: absolute;
   }
-
-  .movie-library-page .filter2 {
-    width: 170px;
-    height: 54px;
-    top: 393px;
-    left: 463px;
-    background-color: #ea9653;
-    border: 1px solid;
-    border-color: #f17411;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 19px 20px;
-    position: absolute;
-  }
-
-  .movie-library-page .filter3 {
-    width: 170px;
-    height: 54px;
-    top: 393px;
-    left: 820px;
-    background-color: #ea9653;
-    border: 1px solid;
-    border-color: #f17411;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 19px 20px;
-    position: absolute;
-  }
   
-  .movie-library-page .filter4 {
-    display: flex;
-    width: 170px;
-    height: 54px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 19px 20px;
-    position: absolute;
-    top: 393px;
-    left: 280px;
-    background-color: #ea9653;
-    border: 1px solid;
-    border-color: #f17411;
-  }
-
-  .movie-library-page .filter5 {
-    width: 170px;
-    height: 54px;
-    top: 393px;
-    left: 645px;
-    background-color: #ea9653;
-    border: 1px solid;
-    border-color: #f17411;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 19px 20px;
-    position: absolute;
-  }
-
-  .movie-library-page .filter-section {
-    width: 170px;
-    height: 54px;
-    top: 393px;
-    left: 796px;
-    background-color: #ea9653;
-    border: 1px solid;
-    border-color: #f17411;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 19px 20px;
-    position: absolute;
-}
-
-  /* Style the labels inside the filter section */
-.movie-library-page .filter-section label {
-  color: #fff; /* Text color */
-  font-weight: bold;
-}
-
-/* Style the select element inside the filter section */
-.movie-library-page .filter-section select {
-  background-color: #fff; /* Background color for select element */
-  color: #333; /* Text color for select element */
-  border: 1px solid #ddd; /* Border for select element */
-  padding: 8px;
-}
-
-/* Style the input element inside the filter section */
-.movie-library-page .filter-section input[type="number"] {
-  background-color: #fff; /* Background color for input element */
-  color: #333; /* Text color for input element */
-  border: 1px solid #ddd; /* Border for input element */
-  padding: 8px;
-}
-
-/* Style the "Apply Filters" button inside the filter section */
-.movie-library-page .filter-section button#apply-filters {
-  background-color: #f17411; /* Button background color */
-  color: #fff; /* Text color for the button */
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* Change button background color on hover */
-.movie-library-page .filter-section button#apply-filters:hover {
-  background-color: #ff9600;
-}
-
-
-  .movie-library-page .genres {
-    position: absolute;
-    width: 141px;
-    height: 45px;
-    top: 347px;
-    left: 100px;
-    font-family: "Lora-Medium", Helvetica;
-    font-weight: 500;
-    color: #000000;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: 15.6px;
-  }
-
-  
-
   .movie-library-page .link {
     position: relative;
     width: fit-content;
@@ -845,6 +716,16 @@ p{
     left: 0;
   }
   
+  .movie-library-page .naviation-right {
+    position: absolute;
+    width: 1512px;
+    height: 64px;
+    top: 0;
+    left: 0;
+    background-image: url(./img/background.svg);
+    background-size: 100% 100%;
+  }
+  
   .movie-library-page .dv-t-LOGO {
     position: absolute;
     width: 130px;
@@ -1010,10 +891,6 @@ p{
     font-weight: 400;
     line-height: normal;
   }
-
-  /* filter */
-
-
   
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
@@ -1062,22 +939,356 @@ button{
     height: 39.74px;
 }
 
-/* Your existing CSS styles */
+/* Buttons */
 
-/* Style for the filter form */
-.filter {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #f5f5f5;
+.btn-now {
+    margin-top: 5px;
+    background-color: #ED812B;
+    color: white;
+}
+
+.btn-now:hover {
+    cursor: pointer;
+    background-color: #404F94;
+    color: white;
+}
+
+.btn-watch {
+    background-color: #404F94;
+    color: white;
+}
+
+.btn-watch:hover {
+    cursor: pointer;
+    background-color: #ED812B;
+    color: white;
+}
+/* ----------------------------------------------------------------------------------*/
+/* Navigation Bar */
+ 
+/* ----------------------------------------------------------------------------------*/
+/* Footer */
+
+/* ----------------------------------------------------------------------------------*/
+/* Sign Up/In Page */
+
+/* ----------------------------------------------------------------------------------*/
+/* Home Page */
+
+/* Header */
+.overlay1{
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.carousel-item1{
+    height: 90vh;
+    background-image: url("../assets/example\ carousel1.jpeg");
+    color: white;
+}
+
+.welcome{
+    padding-top: 15%;
+    padding-left: 10%;
+}
+
+.about{
+    width: 50%;
+    padding-left: 10%;
+}
+
+.movieInfo{
+    text-align: right;
+    padding-right: 15%;
+}
+
+.details{
+    width: -50%;
+}
+
+.btn-now{
+    margin-top: 5px;
+    background-color:#ED812B;
+    color: white;
+}
+
+.btn-now:hover{
+    cursor: pointer;
+    background-color:#404F94;
+    color: white;
+}
+
+/* Genre/Movie list */
+/* Movie Card */
+.subTitle{
+    margin-left: 6%;
+    margin-top: 5%;
+    color:#404F94;
+}
+
+.movies{
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.movie1{
+    width: 250px;
+    height: auto;
+    background-color: grey;
+    /* margin-right: 1%; */
+    margin-bottom: 40px;
+    border-radius: 2%;
+}
+
+.movie1{
+    background-image: url("../assets/Example\ movie\ poster.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay2{
+    text-align: center;
+    width: 250px;
+    height: auto;
+    background-color: #000000c7;
+    color: white;
+    border-radius: 2%;
+    margin-top: 250px;
+    margin-left: -1px;
+    opacity: 0;
+    font-family: 'Lora', serif;
+}
+
+.overlay2:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.btn-watch{
+    background-color: #404F94;
+    color: white;
+}
+
+.btn-watch:hover{
+    cursor: pointer;
+    background-color: #ED812B;
+    color: white;
+}
+
+
+/* ----------------------------------------------------------------------------------*/
+/* Movies Library Page */
+/* Movies Library Page */
+
+/* Movie Library Section Styles */
+.movie-library {
+  text-align: center;
+  padding: 40px 0;
+  background-color: #f2f2f2;
+}
+
+.movie-library-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.filters {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 400px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.filter label, .filter select {
-  margin-right: 10px;
+.filter {
+  margin: 10px;
 }
 
+.filter label {
+  font-size: 14px;
+  display: block;
+}
 
+select, input[type="number"] {
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.separator {
+  margin: 0 5px;
+}
+
+/* add more specific styling for the filters if needed */
+
+.movie-library-page {
+  background-color: #c7d1ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.movie-library-page .div {
+  background-color: #c7d1ff;
+  overflow: hidden;
+  width: 1512px;
+  height: 1973px;
+  position: relative;
+}
+
+.movie-library-page .text-wrapper {
+  width: 685px;
+  height: 70px;
+  top: 145px;
+  left: 413px;
+  font-size: 48px;
+  position: absolute;
+  font-family: "Lora-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.movie-library-page .p {
+  position: absolute;
+  width: 776px;
+  height: 116px;
+  top: 222px;
+  left: 368px;
+  font-family: "Lora-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 33px;
+}
+
+/* footer */
+  /* Footer Styles */
+footer {
+  background-color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .overlap-3 {
+  position: relative;
+}
+
+.footer .background {
+  width: 100%;
+  height: auto;
+}
+
+.footer .LOGO {
+  width: 150px;
+  height: 120px;
+  margin-top: 20px;
+}
+
+.footer .link-3,
+.footer .link-4,
+.footer .link-5,
+.footer .link-6,
+.footer .link-7,
+.footer .link-8,
+.footer .link-9,
+.footer .link-10 {
+  font-size: 16px;
+  margin: 10px;
+  color: #000000;
+}
+
+/* Additional Styling for Overlapping Group */
+.footer .overlap-group-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  padding: 20px;
+}
+
+.footer .overlap-group-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.footer .overlap-group-2 .LOGO {
+  width: 150px;
+  height: 120px;
+  margin-top: 20px;
+}
+
+.footer .overlap-group-2 .link-7,
+.footer .overlap-group-2 .link-8,
+.footer .overlap-group-2 .link-9,
+.footer .overlap-group-2 .link-10 {
+  font-size: 16px;
+  margin: 10px;
+  color: #000000;
+}
+
+  
+/* ----------------------------------------------------------------------------------*/
+/* Individual Movie Page */
+
+/* ----------------------------------------------------------------------------------*/
+/* Movie Watch List Page */
+
+.Watchlist-heading{
+    margin-top: 50px;
+}
+
+.custom-col {
+    width: 312px;
+    height: 312px;
+    border-radius: 40px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    margin-left: 10px;
+    margin-top: 60px;
+}
+
+.custom-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 40px;
+}
+
+.custom-col h3,
+.custom-col p,
+.custom-col button {
+    margin: 10px;
+}
+
+button{
+    width: 170.72;
+    height: 39.74px;
+}

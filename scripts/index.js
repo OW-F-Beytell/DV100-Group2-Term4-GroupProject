@@ -1,34 +1,57 @@
-// index.js
 
-function loadScript(src, callback) {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = src;
-    script.onload = callback;
-    document.head.appendChild(script);
-  }
-  
-  // List of scripts to load dynamically
-  var scriptsToLoad = [
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
-    'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js',
-    'https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'
-  ];
-  
-  // Load the scripts one by one
-  function loadScriptsSequentially(scripts, index) {
-    if (index < scripts.length) {
-      loadScript(scripts[index], function() {
-        // Callback function for the loaded script
-        loadScriptsSequentially(scripts, index + 1);
-      });
-    } else {
-      // All scripts are loaded
-      // You can add your code here to execute after all scripts are loaded
-    }
-  }
-  
-  // Start loading scripts sequentially
-  loadScriptsSequentially(scriptsToLoad, 0);
-  
+/* Movie Library JS */
+    // script.js
+
+// Define your API keys here (consider using environment variables)
+const apiKey = 'your_api_key';
+
+// Fetch and populate movie data
+function fetchAndPopulateMovies() {
+    // Get selected filter criteria
+    const selectedGenre = document.getElementById('genre').value;
+    const selectedYear = document.getElementById('year').value;
+    const minIMDB = document.getElementById('imdb').value;
+    const maxIMDB = document.getElementById('imdb').value;
+
+    // Construct your API endpoint with API key and filter criteria
+    const apiUrl = `https://api.example.com/movies?api_key=${apiKey}&genre=${selectedGenre}&year=${selectedYear}&minIMDB=${minIMDB}&maxIMDB=${maxIMDB}`;
+
+    // Make an API request to fetch movie data
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Clear existing movie cards
+            const movieContainer = document.getElementById('movie-container');
+            movieContainer.innerHTML = '';
+
+            // Populate movie cards with fetched data
+            data.forEach(movie => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
+                card.innerHTML = `
+                    <div class="card">
+                        <img src="${movie.imageUrl}" class="card-img-top" alt="${movie.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${movie.title}</h5>
+                            <p class="card-text">${movie.description}</p>
+                            <p class="card-text">IMDB Score: ${movie.imdbScore}</p>
+                            <a href="individual-movie.html" class="btn btn-primary">View Movie</a>
+                            <button class="btn btn-secondary">Watch Movie</button>
+                        </div>
+                    </div>
+                `;
+                movieContainer.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching movie data:', error);
+        });
+}
+
+// Add event listeners to trigger movie fetch when filter criteria change
+document.getElementById('genre').addEventListener('change', fetchAndPopulateMovies);
+document.getElementById('year').addEventListener('change', fetchAndPopulateMovies);
+document.getElementById('imdb').addEventListener('change', fetchAndPopulateMovies);
+
+// Initial population of movies on page load
+fetchAndPopulateMovies();
