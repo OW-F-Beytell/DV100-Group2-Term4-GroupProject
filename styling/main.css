@@ -228,8 +228,38 @@ p{
     padding-bottom: 1%;
 }
 
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    footer {
+        font-size: 8px;;
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    footer {
+        font-size: 8px;
+    }
+}
+
 .footerLogo{
    padding-left: 7%;
+}
+
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .footerLogo {
+        width: 50px;
+       
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .footerLogo{
+        width: 50px;
+        
+    }
 }
 
 /* ----------------------------------------------------------------------------------*/
@@ -251,6 +281,57 @@ p{
     font-size: 60px;
 }
 
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .splash, h1 {
+        font-size: 40px;;
+    }
+    .splash, h4 {
+        text-align: center;
+        padding-left: 2%;
+        padding-right: 2%;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .splash, h1 {
+        padding-top: 30%;
+        font-size: 40px;
+    }
+    .splash, h4 {
+        text-align: center;
+        padding-left: 2%;
+        padding-right: 2%;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .btn-up {
+        font-size: 22px;
+        width: 170px;
+    }
+    .btn-in {
+        font-size: 22px;
+        width: 170px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .btn-up {
+        font-size: 20px;
+        width: 150px;
+    }
+    .btn-in {
+        font-size: 20px;
+        width: 150px;
+    }
+}
+
 /* ----------------------------------------------------------------------------------*/
 /* Sign Up Page */
 
@@ -259,6 +340,20 @@ p{
     height: 840px;
     background-image: url('../assets/RainyDay\ Background.jpg');
     color: white;
+}
+
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .signupForm {
+        height: 70vh; 
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .signupForm {
+        height: 60vh;
+    }
 }
 
 .signupForm{
@@ -281,9 +376,23 @@ p{
     color:#F1F4FF;
 }
 
+@media (max-width: 768px) {
+    /* For tablets and smaller screens */
+    .loginForm {
+        height: 70vh; 
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .loginForm {
+        height: 60vh;
+    }
+}
 
 /* ----------------------------------------------------------------------------------*/
 /* Home Page */
+
 
 /* Header */
 .card1{
@@ -292,42 +401,7 @@ p{
 .card-body1{
     text-align: right;
 }
-/* .overlay1{
-    width: 100%;
-    height: auto;
-    background-color: rgba(0,0,0,0.4);
-}
 
-.carousel-item1{
-    height: 90vh;
-    background-image: url("../assets/example\ carousel1.jpeg");
-    color: white;
-}
-
-.carousel-item2{
-    height: 90vh;
-    background-image: url("../assets/example\ carousel2.jpeg");
-    color: white;
-}
-
-.welcome{
-    padding-top: 15%;
-    padding-left: 10%;
-}
-
-.about{
-    width: 50%;
-    padding-left: 10%;
-}
-
-.movieInfo{
-    text-align: right;
-    padding-right: 15%;
-}
-
-.details{
-    width: -50%;
-} */
 
 
 /* Genre/Movie list */
