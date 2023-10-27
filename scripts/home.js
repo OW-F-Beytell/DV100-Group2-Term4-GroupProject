@@ -27,7 +27,7 @@ function createMovieCard(movie) {
         </div>`;
 }
 
-const apiKey = '721f6c1ba010dd467b63985221a03ae9';
+const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
 const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
 
 const movieContainer = $('#movieContainer');
@@ -87,7 +87,7 @@ $.ajax({
                 success: function (movieDetails) {
                     console.log(`Title: ${movie.title}`);
                     const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                    console.log(`Director: ${director}`);
+                    console.log(`Director: ${director.name}`);
                     console.log(`Description: ${movieDetails.overview}`);
                     console.log(`Viewer Rating: ${movie.vote_average}`);
                     
@@ -99,9 +99,9 @@ $.ajax({
 
                     // Create the movie card HTML and append it to the container
                     const movieCard = createMovieCard({
-                        title: movie.title,
-                        director: director.name,
-                        vote_average: movie.vote_average,
+                        movieTitle: movie.title,
+                        movieDirector: director.name,
+                        movieScore: movie.vote_average,
                         poster_path: movie.poster_path,
                         description: movieDetails.overview,
                         genres: genresArr
