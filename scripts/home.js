@@ -3,28 +3,28 @@ function createMovieCard(movie) {
     const director = movie.movieDirector ? movie.movieDirector : "N/A";
     const rating = movie.movieScore ? movie.movieScore : "N/A";
 
-    // return `
-    //     <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
-    //         <div class="movie-container">
-    //             <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
-    //             <div class="img-overlay">
-    //                 <h4>${movie.movieTitle}</h4>
-    //                 <p>Director: ${director} <br> Rating: ${rating}</p>
-    //                 <button type="button" class="btn">
-    //                     <div class="row movie-links">
-    //                         <div class="col-8">
-    //                             <a href="pages/movie.html">
-    //                                 <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-    //                             </a>
-    //                         </div>
-    //                         <div class="col-4">
-    //                             <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-    //                         </div>
-    //                     </div>
-    //                 </button>
-    //             </div>
-    //         </div>
-    //     </div>`;
+    return `
+        <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
+            <div class="movie-container">
+                <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
+                <div class="img-overlay">
+                    <h4>${movie.movieTitle}</h4>
+                    <p>Director: ${director} <br> Rating: ${rating}</p>
+                    <button type="button" class="btn">
+                        <div class="row movie-links">
+                            <div class="col-8">
+                                <a href="pages/movie.html">
+                                    <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>`;
 }
 
 const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
