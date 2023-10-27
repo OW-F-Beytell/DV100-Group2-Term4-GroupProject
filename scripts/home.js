@@ -1,24 +1,24 @@
-JS: // HTML template for the movie card
+//JS:  HTML template for the movie card
 function createMovieCard(movie) {
-    const director = movie.director ? movie.director : "N/A";
-    const rating = movie.vote_average ? movie.vote_average : "N/A";
+    const director = movie.movieDirector ? movie.movieDirector : "N/A";
+    const rating = movie.movieScore ? movie.movieScore : "N/A";
 
     return `
         <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
             <div class="movie-container">
-                <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
                 <div class="img-overlay">
-                    <h4>${movie.title}</h4>
+                    <h4>${movie.movieTitle}</h4>
                     <p>Director: ${director} <br> Rating: ${rating}</p>
                     <button type="button" class="btn">
                         <div class="row movie-links">
                             <div class="col-8">
                                 <a href="pages/movie.html">
-                                    
+                                    <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
                                 </a>
                             </div>
                             <div class="col-4">
-                               
+                                <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
                             </div>
                         </div>
                     </button>
@@ -27,11 +27,11 @@ function createMovieCard(movie) {
         </div>`;
 }
 
-const apiKey = '721f6c1ba010dd467b63985221a03ae9';
+const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
 const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
 
 const movieContainer = $('#movieContainer');
-movieContainer.empty();
+// movieContainer.empty();
 
 // Function to create a carousel item from movie data
 function createCarouselItem(movie) {
@@ -87,7 +87,7 @@ $.ajax({
                 success: function (movieDetails) {
                     console.log(`Title: ${movie.title}`);
                     const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                    console.log(`Director: ${director}`);
+                    console.log(`Director: ${director.name}`);
                     console.log(`Description: ${movieDetails.overview}`);
                     console.log(`Viewer Rating: ${movie.vote_average}`);
                     
@@ -98,14 +98,14 @@ $.ajax({
                     });
 
                     // Create the movie card HTML and append it to the container
-                    const movieCard = createMovieCard({
-                        title: movie.title,
-                        director: director.name,
-                        vote_average: movie.vote_average,
-                        poster_path: movie.poster_path,
-                        description: movieDetails.overview,
-                        genres: genresArr
-                    });
+                    // const movieCard = createMovieCard({
+                    //     movieTitle: movie.title,
+                    //     movieDirector: director.name,
+                    //     movieScore: movie.vote_average,
+                    //     moviePoster: movie.poster_path,
+                    //     movieDescription: movieDetails.overview,
+                    //     movieGenreList: genresArr
+                    // });
 
                     // Append the card to the movieContainer
                     movieContainer.append(movieCard);
