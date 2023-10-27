@@ -70,6 +70,11 @@ p{
 /* Buttons */
 
 /* Navigation Bar */
+.logOut{
+    background-color:#201984;
+    border-radius: 10px;
+}
+
 .search-btn{
     border: 2px solid #ED812B;
 }
