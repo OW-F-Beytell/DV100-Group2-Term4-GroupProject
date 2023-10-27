@@ -9,6 +9,21 @@ font-family: 'Sintony', sans-serif; */
 /* ----------------------------------------------------------------------------------*/
 /* Global Styles */
 
+/* Hide the second piece of text by default */
+.card .card-img-overlay {
+    display:none;
+}
+
+/* Hide the first piece of text on hover */
+.card:hover .card-img-overlay {
+    display:inline;
+}
+.card-img-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+}
+
 body{
     background-color: #F1F4FF;
     background-image: linear-gradient(60deg, #d7def5,  #bbc8f8,  #837ce4,  #554AE1,  #1b30a8);
