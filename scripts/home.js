@@ -3,35 +3,35 @@ function createMovieCard(movie) {
     const director = movie.movieDirector ? movie.movieDirector : "N/A";
     const rating = movie.movieScore ? movie.movieScore : "N/A";
 
-    return `
-        <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
-            <div class="movie-container">
-                <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
-                <div class="img-overlay">
-                    <h4>${movie.movieTitle}</h4>
-                    <p>Director: ${director} <br> Rating: ${rating}</p>
-                    <button type="button" class="btn">
-                        <div class="row movie-links">
-                            <div class="col-8">
-                                <a href="pages/movie.html">
-                                    <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-                            </div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </div>`;
+    // return `
+    //     <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
+    //         <div class="movie-container">
+    //             <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
+    //             <div class="img-overlay">
+    //                 <h4>${movie.movieTitle}</h4>
+    //                 <p>Director: ${director} <br> Rating: ${rating}</p>
+    //                 <button type="button" class="btn">
+    //                     <div class="row movie-links">
+    //                         <div class="col-8">
+    //                             <a href="pages/movie.html">
+    //                                 <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
+    //                             </a>
+    //                         </div>
+    //                         <div class="col-4">
+    //                             <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
+    //                         </div>
+    //                     </div>
+    //                 </button>
+    //             </div>
+    //         </div>
+    //     </div>`;
 }
 
 const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
 const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
 
-const movieContainer = $('#movieContainer');
-// movieContainer.empty();
+const cardContainer = $('#cardContainer');
+// cardContainer.empty();
 
 // Function to create a carousel item from movie data
 function createCarouselItem(movie) {
@@ -39,27 +39,8 @@ function createCarouselItem(movie) {
     const rating = movie.vote_average ? movie.vote_average : "N/A";
 
     return `
-        <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}" class="d-block w-100 background-img" alt="...">
-            <div class="overlay">
-                <div class="card m-5" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h2 class="card-title">${movie.title}</h2>
-                                <p class="card-text">Director: ${director}</p>
-                                <p>Rating: ${rating}</p>
-                                <img src="assets/Retro-btn.svg">
-                                <img src="assets/Add-btn.svg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+    
+    `
 }
 
 // API
@@ -67,7 +48,7 @@ $.ajax({
     url: tmdbEndpoint,
     method: 'GET',
     success: function (data) {
-        const movies = data.results.slice(0, 12); // Load only 12 movies
+        const movies = data.results.slice(0, 16); // Load only 16 movies
 
         // Create the carousel items
         const carouselInner = $('#movieCarousel .carousel-inner');
@@ -98,17 +79,17 @@ $.ajax({
                     });
 
                     // Create the movie card HTML and append it to the container
-                    // const movieCard = createMovieCard({
-                    //     movieTitle: movie.title,
-                    //     movieDirector: director.name,
-                    //     movieScore: movie.vote_average,
-                    //     moviePoster: movie.poster_path,
-                    //     movieDescription: movieDetails.overview,
-                    //     movieGenreList: genresArr
-                    // });
+                    const movieCard = createMovieCard({
+                        movieTitle: movie.title,
+                        movieDirector: director.name,
+                        movieScore: movie.vote_average,
+                        moviePoster: movie.poster_path,
+                        movieDescription: movieDetails.overview,
+                        movieGenreList: genresArr
+                    });
 
-                    // Append the card to the movieContainer
-                    movieContainer.append(movieCard);
+                    // Append the card to the cardContainer
+                    cardContainer.append(movieCard);
 
                     // Create the carousel item and append it to the carousel
                     const carouselItem = createCarouselItem(movie);
@@ -152,16 +133,16 @@ function addToWatchList(title,director,rating, description, genres, imageurl){
 
 function addToLocalStorageAndGoToMovie(title, director, rating, description, genres, imageurl, cast, boxOffice) {
     // Create an object with the movie data
-    const temp = {
-        'title': title,
-        'director': director,
-        'rating': rating,
-        'description': description,
-        'genres': genres,
-        'imgUrl': imageurl,
-        'actors': cast,
-        'box-office': boxOffice
-    };
+    // const temp = {
+    //     'title': title,
+    //     'director': director,
+    //     'rating': rating,
+    //     'description': description,
+    //     'genres': genres,
+    //     'imgUrl': imageurl,
+    //     'actors': cast,
+    //     'box-office': boxOffice
+    // };
 
     // Check if local storage already contains a 'movie' key
     if (localStorage.getItem('movie') === null) {
