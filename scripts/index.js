@@ -24,7 +24,7 @@ $(document).ready(function() {
     //Log In Form
     //-------------------------------------------------------------------------------------------------------
 
-    $('#loginForm').submit(function(event) {
+    $('#loginForm').submit(function(event) {            
 
         event.preventDefault();
 
