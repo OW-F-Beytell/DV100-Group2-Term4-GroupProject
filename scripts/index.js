@@ -23,11 +23,126 @@ function populateMovieCards(movieData) {
   }
   
   // Example movie data (replace with your actual data)
-  const movieData = [
+  const moviecard = [
     {
       title: 'Movie Title 1',
       description: 'Description for Movie 1',
       link: 'https://example.com/movie1',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
+    },
+    {
+      title: 'Movie Title 2',
+      description: 'Description for Movie 2',
+      link: 'https://example.com/movie2',
     },
     {
       title: 'Movie Title 2',
