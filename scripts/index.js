@@ -92,6 +92,46 @@ function validateForm() {
 }
 
 
+
+        //----------------------
+        // Movie Library
+        //----------------------
+        // JavaScript code in your library.js file
+
+                // Define a function to fetch movie data from the API
+                function fetchMovies() {
+                    const apiKey = 'YOUR_API_KEY'; // Replace with your API key
+                    const genre = 'all'; // You can change this to the desired genre
+                
+                    // Fetch data from the API
+                    fetch(`https://api.example.com/movies?api_key=${apiKey}&genre=${genre}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const movies = data.results;
+                
+                        // Loop through the movies and populate the HTML
+                        movies.forEach((movie, index) => {
+                        const movieCard = document.querySelector('.movie').cloneNode(true);
+                
+                        // Populate movie card with data
+                        movieCard.querySelector('.card-title').textContent = movie.title;
+                        movieCard.querySelector('.card-text').textContent = movie.description;
+                        movieCard.querySelector('.btn-watch').href = movie.link;
+                
+                        // Append the movie card to the movies container
+                        document.querySelector('.movies').appendChild(movieCard);
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching movies:', error);
+                    });
+                }
+                
+                // Listen for the page to load
+                document.addEventListener('DOMContentLoaded', fetchMovies);
+  
+
+
 // Local Storage
 let validateForm_serialized = JSON.stringify(validateForm);
 
