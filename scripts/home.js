@@ -1,46 +1,23 @@
 //JS:  HTML template for the movie card
 function createMovieCard(movie) {
-    console.log(movie);
+    // console.log(movie);
     const director = movie.movieDirector ? movie.movieDirector : "N/A";
     const rating = movie.movieScore ? movie.movieScore : "N/A";
 
-    // return `
-    //     <div class="col-6 col-lg-3 col-md-4 col-xl-2 mb-3">
-    //         <div class="movie-container">
-    //             <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.moviePoster}">
-    //             <div class="img-overlay">
-    //                 <h4>${movie.movieTitle}</h4>
-    //                 <p>Director: ${director} <br> Rating: ${rating}</p>
-    //                 <button type="button" class="btn">
-    //                     <div class="row movie-links">
-    //                         <div class="col-8">
-    //                             <a href="pages/movie.html">
-    //                                 <img class="btn-movies" src="assets/Retro-btn.svg" onclick="addToLocalStorageAndGoToMovie('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-    //                             </a>
-    //                         </div>
-    //                         <div class="col-4">
-    //                             <img class="add-btn" src="assets/Add-btn.svg" onclick="addToWatchList('${movie.movieTitle}','${director}','${rating}','${movie.movieDescription}','${movie.movieGenreList}','${movie.moviePoster}')">
-    //                         </div>
-    //                     </div>
-    //                 </button>
-    //             </div>
-    //         </div>
-    //     </div>`;
-        let returnValue = '
-            <div class="row row-cols-2 row-cols-lg-4 row-cols-md-4 row-cols-xs-6 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://image.tmdb.org/t/p/w500' + ${movie.moviePoster} + ' style="border-radius: 20px;" class="card-img-top" alt="...">
-                        <div class="card-img-overlay">
-                            <h3> ' + ${movie.movieTitle} + ' </h3>
-                            <p>Director: ${director} + " <br> Rating: " + ${rating} + "</p>
-                            <a href="../pages/individual page.html" class="btn btn-watch">WATCH NOW</a>
-                        </div>
+    let returnValue = `
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                        <h3> ${movie.movieTitle}</h3>
+                        <p>Director: ${director}<br> Rating: ${rating}</p>
+                        <a href="../pages/individual page.html" class="btn btn-watch">WATCH NOW</a>
+                        <a class="btn btn-watch" onclick="addToWatchList(${movie});">WATCH LATER</a>
                     </div>
                 </div>
-            </div>';
+            </div>`;
 
-        return returnValue;
+    return returnValue;
 }
 
 const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
@@ -91,8 +68,8 @@ $.ajax({
         // carouselInner.empty();
 
         movies.forEach(function (movie, index) {
-            console.log(`Movie ${index + 1}:`);
-            console.log(`Title: ${movie.title}`);
+            // console.log(`Movie ${index + 1}:`);
+            // console.log(`Title: ${movie.title}`);
 
             const movieId = movie.id;
             const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
@@ -101,11 +78,11 @@ $.ajax({
                 url: movieDetailsEndpoint,
                 method: 'GET',
                 success: function (movieDetails) {
-                    console.log(`Title: ${movie.title}`);
+                    // console.log(`Title: ${movie.title}`);
                     const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                    console.log(`Director: ${director.name}`);
-                    console.log(`Description: ${movieDetails.overview}`);
-                    console.log(`Viewer Rating: ${movie.vote_average}`);
+                    // console.log(`Director: ${director.name}`);
+                    // console.log(`Description: ${movieDetails.overview}`);
+                    // console.log(`Viewer Rating: ${movie.vote_average}`);
                     
                     const genresArr = [];
 
@@ -122,17 +99,16 @@ $.ajax({
                         movieDescription: movieDetails.overview,
                         movieGenreList: genresArr
                     });
-                    console.log(movie);
+                    // console.log(movie);
 
                     // Append the card to the movieContainer
                     movieContainer.append(movieCard);
-                    console.log(movieCard)
 
                     // Create the carousel item and append it to the carousel
                     const carouselItem = createCarouselItem(movie);
                     carouselInner.append(carouselItem);
 
-                    console.log('-------------------------');
+                    // console.log('-------------------------');
                 },
                 error: function (error) {
                     console.log('Error:', error);
@@ -145,16 +121,17 @@ $.ajax({
     }
 });
 
-function addToWatchList(title,director,rating, description, genres, imageurl){
-    console.log(genres)
+function addToWatchList(movie){
+    console.log(movie.genres)
     const temp = {
-        'title':title,
-        'director':director,
-        'rating':rating,
-        'description':description,
-        'genres':genres,
-        'imgUrl':imageurl
+        'title':movie.title,
+        'director':movie.director,
+        'rating':movie.rating,
+        'description':movie.description,
+        'genres':movie.genres,
+        'imgUrl':movie.imageurl
     }
+    console.log(temp);
 
     if(localStorage.getItem('watchList') === null){
         localStorage.setItem('watchList',JSON.stringify([temp]));
