@@ -29,7 +29,7 @@ function createCarouselItem(movie) {
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h2 class="card-title">${movie.title}</h2>
+                                <p>class="card-title">${movie.title}</p>
                                 <p class="card-text">Director: ${director}</p>
                                 <p>Rating: ${rating}</p>
                                 <img src="assets/Retro-btn.svg">
@@ -125,19 +125,7 @@ function createMovieCard(movie) {
                 </div>
             </div>`;
     return returnValue;
-    // let returnValue = `
-    //         <div class="col">
-    //             <div class="card h-100">
-    //                 <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
-    //                 <div class="card-img-overlay">
-    //                     <h3> ${movie.movieTitle}</h3>
-    //                     <p>Director: ${director}<br> Rating: ${rating}</p>
-    //                     <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
-    //                     <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
-    //                 </div>
-    //             </div>
-    //         </div>`;
-    // return returnValue;
+
 }
 
 
