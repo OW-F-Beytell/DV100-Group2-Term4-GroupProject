@@ -3,103 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umbrella Cinema: Movie Watchlist Page</title>
+    <title>7| Umbrella Cinema: Movie Watch List Page</title>
 
     <!-- Style Sheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../styling/main.css">
 
 </head>
-<body>
 
-    <nav class="navbar navbar-expand-lg" style="background-color: #3C5099;">
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Nav Bar -->
+<navbar>
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <img src="/assets/Cinema Logo Main.png" style="width: 60px; height: 50px;">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../assets/Logo-Nav.svg" alt="Logo" height="80">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+                <a class="nav-link "  href="../pages/homepage.html"><strong>Home</strong></a>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white;">Library</a>
+                <a class="nav-link" href="../pages/librarypage.html">Movie Library</a>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white;">Watchlist</a>
+                <a class="nav-link" aria-current="page" href="../pages/watchlistpage.html"><strong>Watch List</strong></a>
               </li>
+
+
+              <div class="logOut">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Log Out</a>
+                </li>
+              </div>
+
             </ul>
-            <form class="d-flex" id="search-form">
-              <input class="form-control me-2" type="search" id="search-input" placeholder="Search" aria-label="Search">
-              <button type="submit" style="background-color: #0F1959; color: white; border-radius: 10px;">Search</button>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 search-btn" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-warning" type="submit">Go</button>
             </form>
           </div>
         </div>
       </nav>
+</navbar>
 
-    <div class="Watchlist-heading">
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Page Contents -->
+<body>
 
-        <h1 class="heading text-center">Watch List</h1>
-        <p class="subheading text-center">Your favorite films are waiting to be enjoyed at your fingertips.</p>
-
+    <div class="row">
+        <div class="pageIntro">
+            <h2>Your Watch List</h2>
+             <p>Your favorite films are waiting to be enjoyed at your fingertips.</p>
+        </div>
     </div>
 
-    <div class="container text-center">
-      <div class="row align-items-center">
-        <div class="col-md-3 custom-col" style="background-image: url('/assets/7a823b094f9fb8e057778f6282f45fde.jpg'); background-size: cover; background-position: center;">
-          <h3 style="color: black;">The Northman</h3>
-          <p style="color: black;">2022 | HD | 2h 17min | Drama/Action</p>
-          <button class="watch-button" style="background-color: #0F1959; color: white; border-radius: 10px;">Watch Now</button>
-          <button class="remove-button" style="background-color: red; color: white; border-radius: 10px;">Remove</button>
-        </div>
-        <div class="col-md-3 custom-col" style="background-image: url('/assets/The-Batman-2022-Movie-Poster-01.webp'); background-size: cover; background-position: center;">
-          <h3 style="color: black;">The Batman</h3>
-          <p style="color: black;">2022 | HD | 3h | Drama/Action</p>
-          <button class="watch-button" style="background-color: #0F1959; color: white; border-radius: 10px;">Watch Now</button>
-          <button class="remove-button" style="background-color: red; color: white; border-radius: 10px;">Remove</button>
-        </div>
-        <div class="col-md-3 custom-col" style="background-image: url('/assets/download.jpeg'); background-size: cover; background-position: center;">
-          <h3 style="color: black;">The Last Airbender</h3>
-          <p style="color: black;">2010 | HD | 2h | Sci-Fi</p>
-          <button class="watch-button" style="background-color: #0F1959; color: white; border-radius: 10px;">Watch Now</button>
-          <button class="remove-button" style="background-color: red; color: white; border-radius: 10px;">Remove</button>
-        </div>
-        <div class="col-md-3 custom-col" style="background-image: url('/assets/Vintage-Oppenheimer-2023-Europe-and-America-New-Movie-Posters-For-Room-Living-Kraft-Painting-Art-Home.webp'); background-size: cover; background-position: center;">
-          <h3 style="color: white;">Oppenheimer</h3>
-          <p style="color: white;">2023 | HD | 3h | Thriller</p>
-          <button class="watch-button" style="background-color: #0F1959; color: white; border-radius: 10px;">Watch Now</button>
-          <button class="remove-button" style="background-color: red; color: white; border-radius: 10px;">Remove</button>
-        </div>
-      </div>
-    </div>
-    
-    
-      
-    <footer style="margin-top: 100px; background-color: #3C5099;">
-      <div class="foot-container">
-        <div class="foot-text" style="padding-left: 50px; color: white; ;">
-          <p>About Us</p>
-          <p>Learn More</p>
-          <p>Contact Us</p>
-          <p>Terms and Conditions</p>
-        </div>
-        <div class="foot-logo" style="text-align: center;">
-          <img src="/assets/Cinema Logo Secondary.png" style="height: 100px; width: 100px;">
-        </div>
-      </div>
-    </footer>
-    
-    
-    
+
+    <!-- Filter -->
+
+
+
+        <!-- Movies on Watch list-->
+
+        
+
 </body>
+
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid footer">
+         <div class="row">
+    
+            <div class="col-1"></div>
+            <div class="col-2 footerInfo">
+              <p>More About Us <br>
+                Learn More <br>
+                T&Cs</p>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3 footerLogo">
+                <a href="https://github.com/nicolaprinsloo">
+                  <img src="../assets/Logo-Secondary-Footer.svg" alt="Logo" height="80">
+                </a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2 contactUs">
+              <p>Contact Us</p>
+              <a href="https://github.com/nicolaprinsloo"><img src="../assets/phone_icon.svg" alt="call" height="20"></a>
+              <a href="https://github.com/nicolaprinsloo"><img src="../assets/email_icon.svg" alt="mail" height="20"></a>
+            </div>
+    
+         </div>
+        </div> 
+      </footer>
+    
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="/scripts/watchlist.js"></script>  
+    <script src="../scripts/watchlist.js"></script>  
 
     
 </html>
