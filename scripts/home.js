@@ -53,10 +53,7 @@ function loadWelcomeMovieContent() {
         success: function (data) {
             const movies = data.results.slice(0, 12); // Load only 12 movies
 
-            // // Create the carousel items
-            // const carouselInner = $('#movieCarousel .carousel-inner');
-            // carouselInner.empty();
-            // // carouselInner.empty();
+
 
             movies.forEach(function (movie, index) {
 
