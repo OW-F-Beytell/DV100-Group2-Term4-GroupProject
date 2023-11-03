@@ -35,7 +35,8 @@
 watchlist = [424,389];
 // watchlist = JSON.parse(localStorage.getItem('watchList'));
 watchlist.forEach(function (movieID) {
-    const movieDetailsEndpoint = 'https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US&append_to_response=credits,images';
+    const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
+    const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
     $.ajax({
         url: movieDetailsEndpoint,
         method: 'GET',
@@ -48,15 +49,46 @@ watchlist.forEach(function (movieID) {
                 genresArr.push(genre.name);
             });
 
+            // // Create movie card function
+             function createMovieCard({ movie }) {
+                 return (
+                     `<div className="movie-card">
+                         <img src={'https://image.tmdb.org/t/p/w500/${movie.poster_path}} alt={${movie.title} Poster'} />
+                         <h2>{movie.title}</h2>
+                         <p>Director: {movie.director}</p>
+                         <p>Score: {movie.vote_average}</p>
+                         <p>{movie.overview}</p>
+                         <ul className="genre-list">
+                             {movie.genres.map(genre => (
+                                 <li key={genre.id}>{genre.name}</li>
+                             ))}
+                         </ul>
+                     </div>`
+             );
+        }
+
+            // const movieData = {
+            //     id: 1,
+            //     title: 'Movie Title',
+            //     director: 'Director Name',
+            //     vote_average: 8.0,
+            //     poster_path: '/path/to/poster.jpg',
+            //     overview: 'Movie description here.',
+            //     genres: [{id: 1, name: 'Action' }, {id: 2, name: 'Drama' }]
+            // };
+
+
             // Create the movie card HTML and append it to the container
             const movieCard = createMovieCard({
-                movieID : movie.id,
-                movieTitle: movie.title,
-                movieDirector: director.name,
-                movieScore: movie.vote_average,
-                moviePoster: movie.poster_path,
-                movieDescription: movieDetails.overview,
-                movieGenreList: genresArr
+                movie: {
+                    id: movieDetails.id,
+                    title: movieDetails.title,
+                    director: director.name,
+                    vote_average: movieDetails.vote_average,
+                    moviePoster: movie.poster_path,
+                    overview: movieDetails.overview,
+                    genres: genresArr
+                }
             });
 
             // Append the card to the movieContainer
