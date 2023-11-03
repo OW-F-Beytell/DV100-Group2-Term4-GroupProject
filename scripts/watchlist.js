@@ -1,6 +1,6 @@
 // // Retrieve and display from localStorage
 // function displayWatchlist() {
-//     const watchlistElement = document.getElementById('watchlist');
+     const watchlistElement = document.getElementById('movieContainer');
   
 //     // Check if 'watchList' item is in the localstorage
 //     if (localStorage.getItem('watchList')) {
@@ -50,50 +50,36 @@ watchlist.forEach(function (movieID) {
             });
 
             // // Create movie card function
-             function createMovieCard({ movie }) {
-                 return (
-                     `<div className="movie-card">
-                         <img src={'https://image.tmdb.org/t/p/w500/${movie.poster_path}} alt={${movie.title} Poster'} />
-                         <h2>{movie.title}</h2>
-                         <p>Director: {movie.director}</p>
-                         <p>Score: {movie.vote_average}</p>
-                         <p>{movie.overview}</p>
-                         <ul className="genre-list">
-                             {movie.genres.map(genre => (
-                                 <li key={genre.id}>{genre.name}</li>
-                             ))}
-                         </ul>
-                     </div>`
-             );
-        }
+            function createMovieCard(movie) {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
 
-            // const movieData = {
-            //     id: 1,
-            //     title: 'Movie Title',
-            //     director: 'Director Name',
-            //     vote_average: 8.0,
-            //     poster_path: '/path/to/poster.jpg',
-            //     overview: 'Movie description here.',
-            //     genres: [{id: 1, name: 'Action' }, {id: 2, name: 'Drama' }]
-            // };
+                // Create the card's inner HTML
+                card.innerHTML = `
+                    <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster" />
+                    <h2>${movie.title}</h2>
+                    <p>Director: ${movie.director}</p>
+                    <p>Score: ${movie.vote_average}</p>
+                    <p>${movie.overview}</p>
+                    <ul class="genre-list">
+                        ${movie.genres.map(genre => `<li>${genre}</li>`).join('')}
+                    </ul>
+                `;
 
+                return card;
+            }
 
-            // Create the movie card HTML and append it to the container
+            // Create the movie card and append it to the movieContainer
             const movieCard = createMovieCard({
-                movie: {
-                    id: movieDetails.id,
-                    title: movieDetails.title,
-                    director: director.name,
-                    vote_average: movieDetails.vote_average,
-                    moviePoster: movie.poster_path,
-                    overview: movieDetails.overview,
-                    genres: genresArr
-                }
+                title: movieDetails.title,
+                director: director.name,
+                vote_average: movieDetails.vote_average,
+                poster_path: movieDetails.poster_path,
+                overview: movieDetails.overview,
+                genres: genresArr,
             });
 
-            // Append the card to the movieContainer
-            movieContainer.append(movieCard);
-            console.log(movieDetails)
+            movieContainer.appendChild(movieCard);
         },
         error: function (error) {
             console.log('Error:', error);
