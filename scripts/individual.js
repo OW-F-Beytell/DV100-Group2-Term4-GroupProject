@@ -51,15 +51,10 @@ function loadCurrMovie() {
             url: movieDetailsEndpoint,
             method: 'GET',
             success: function (currMovie) {
-                // const director = currMovie.credits.crew.find(person => person.job === "Director").name;
-                
-                const genresArr = [];
                 const castArr = [];
                 const directorArr = [];
+                const genresArr = [];
 
-                currMovie.genres.forEach(function(genre){
-                    genresArr.push(genre.name);
-                });
                 let i = 0;
                 currMovie.credits.cast.forEach(function(castMember){
                     i++;
@@ -67,28 +62,37 @@ function loadCurrMovie() {
                         castArr.push(castMember.name);
                     }
                 });
+                console.log(castArr);
                 i = 0;
                 currMovie.credits.crew.forEach(function(crewMember){
                     if (crewMember.job === "Director") {
                         directorArr.push(crewMember.name);
                     }
                 });
-                console.log(castArr);
+                currMovie.genres.forEach(function(genre){
+                    genresArr.push(genre.name);
+                });
 
                 // Create the movie card HTML and append it to the container
                 const movieDetails = {
                     movieID : currMovie.id,
                     movieTitle: currMovie.title,
+                    movieYear: currMovie.release_date.substr(0, 4),
+                    movieDescription: currMovie.overview,
                     movieCast: castArr.join(", "),
                     movieDirector: directorArr.join(", "),
                     movieScore: currMovie.vote_average,
                     moviePoster: currMovie.poster_path,
-                    movieDescription: currMovie.overview,
                     movieGenreList: genresArr.join(", ")
                 };
+
                 $('#movieTitleHeading').text(movieDetails.movieTitle);
-                $('#movieContributors').html(`Starring: ${movieDetails.movieCast} <br>
-                Creators: ${movieDetails.movieDirector}`);
+
+                // $('#movieDeets').html(`${movieDetails.movieYear} |`);
+
+                $('#movieContributors').html(`<strong>Starring:</strong> ${movieDetails.movieCast} <br>
+                <strong>Creators:</strong> ${movieDetails.movieDirector}`);
+
                 $('#posterContainer').append(`
                     <img src="https://image.tmdb.org/t/p/w500${movieDetails.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="..."></img>
                 `);
