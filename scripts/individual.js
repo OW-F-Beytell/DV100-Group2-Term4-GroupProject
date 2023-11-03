@@ -8,6 +8,7 @@ function loadWatchList() {
         console.log(watchListArr);
     }
 }
+
 let currMovieID = null;
 
 function loadCurrMovie() {
@@ -43,35 +44,56 @@ function loadCurrMovie() {
         `);
 
         currMovieID = JSON.parse(localStorage.getItem('currMovie'));
-        console.log(currMovieID);
+        // console.log(currMovieID);
 
-        const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${currMovieID}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+        const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${currMovieID}?api_key=${apiKey}&language=en-US&with_crew&append_to_response=credits,images`;
         $.ajax({
             url: movieDetailsEndpoint,
             method: 'GET',
             success: function (currMovie) {
-                const director = currMovie.credits.crew.find(person => person.job === "Director");
+                // const director = currMovie.credits.crew.find(person => person.job === "Director").name;
                 
                 const genresArr = [];
+                const castArr = [];
+                const directorArr = [];
 
                 currMovie.genres.forEach(function(genre){
                     genresArr.push(genre.name);
                 });
+                let i = 0;
+                currMovie.credits.cast.forEach(function(castMember){
+                    i++;
+                    if (i <= 5) {
+                        castArr.push(castMember.name);
+                    }
+                });
+                i = 0;
+                currMovie.credits.crew.forEach(function(crewMember){
+                    if (crewMember.job === "Director") {
+                        directorArr.push(crewMember.name);
+                    }
+                });
+                console.log(castArr);
 
                 // Create the movie card HTML and append it to the container
                 const movieDetails = {
                     movieID : currMovie.id,
                     movieTitle: currMovie.title,
-                    movieDirector: currMovie.name,
+                    movieCast: castArr.join(", "),
+                    movieDirector: directorArr.join(", "),
                     movieScore: currMovie.vote_average,
                     moviePoster: currMovie.poster_path,
                     movieDescription: currMovie.overview,
-                    movieGenreList: genresArr
+                    movieGenreList: genresArr.join(", ")
                 };
-                $('#movieTitleHeading').text($(movieDetails.movieTitle));
+                $('#movieTitleHeading').text(movieDetails.movieTitle);
+                $('#movieContributors').html(`Starring: ${movieDetails.movieCast} <br>
+                Creators: ${movieDetails.movieDirector}`);
                 $('#posterContainer').append(`
                     <img src="https://image.tmdb.org/t/p/w500${movieDetails.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="..."></img>
                 `);
+                console.log(currMovie);
+                console.log(movieDetails);
             },
             error: function (error) {
                 console.log('Error:', error);
