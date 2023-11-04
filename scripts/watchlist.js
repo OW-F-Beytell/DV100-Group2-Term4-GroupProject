@@ -32,57 +32,73 @@
 //   // Call function to display the watchlist when the page load
 //   displayWatchlist();
 
-watchlist = [424,389];
-// watchlist = JSON.parse(localStorage.getItem('watchList'));
+watchlist = [424, 389];
+const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
+
+// Function to create a movie card and append it to the movieContainer
+function createMovieCard(movieDetails) {
+  const card = document.createElement('div');
+  card.className = 'movie-card';
+
+  // Create the card's inner HTML
+  card.innerHTML = `
+    <img src="https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}" alt="${movieDetails.title} Poster" />
+    <div class="movie-details">
+      <h2>${movieDetails.title}</h2>
+      <ul class="genre-list">
+        ${movieDetails.genres.map(genre => `<li>${genre}</li>`).join('')}
+      </ul>
+      <p class="director">Director: ${movieDetails.director}</p>
+      <p>Score: ${movieDetails.vote_average}</p>
+      <p>${movieDetails.overview}</p>
+      <button class="remove-button">Remove</button>
+    </div>
+  `;
+
+  // Add an event listener to the "Remove" button
+  card.querySelector('.remove-button').addEventListener('click', function () {
+    // Remove the card from the page
+    card.remove();
+
+    // Remove the movie from local storage
+    const watchlist = JSON.parse(localStorage.getItem('watchList') || '[]');
+    const movieIndex = watchlist.indexOf(movieDetails.id);
+    if (movieIndex !== -1) {
+      watchlist.splice(movieIndex, 1);
+      localStorage.setItem('watchList', JSON.stringify(watchlist));
+    }
+  });
+
+  return card;
+}
+
+// Fetch and display movie details for each movie in the watchlist
 watchlist.forEach(function (movieID) {
-    const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
-    const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
-    $.ajax({
-        url: movieDetailsEndpoint,
-        method: 'GET',
-        success: function (movieDetails) {
-            const director = movieDetails.credits.crew.find(person => person.job === "Director");
+  const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
 
-            const genresArr = [];
+  $.ajax({
+    url: movieDetailsEndpoint,
+    method: 'GET',
+    success: function (movieDetails) {
+      const director = movieDetails.credits.crew.find(person => person.job === "Director");
+      const genresArr = movieDetails.genres.map(genre => genre.name);
 
-            movieDetails.genres.forEach(function(genre){
-                genresArr.push(genre.name);
-            });
+      // Create the movie card
+      const movieCard = createMovieCard({
+        id: movieDetails.id,
+        title: movieDetails.title,
+        director: director.name,
+        vote_average: movieDetails.vote_average,
+        poster_path: movieDetails.poster_path,
+        overview: movieDetails.overview,
+        genres: genresArr,
+      });
 
-            // // Create movie card function
-            function createMovieCard(movie) {
-                const card = document.createElement('div');
-                card.className = 'movie-card';
-
-                // Create the card's inner HTML
-                card.innerHTML = `
-                    <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster" />
-                    <h2>${movie.title}</h2>
-                    <p>Director: ${movie.director}</p>
-                    <p>Score: ${movie.vote_average}</p>
-                    <p>${movie.overview}</p>
-                    <ul class="genre-list">
-                        ${movie.genres.map(genre => `<li>${genre}</li>`).join('')}
-                    </ul>
-                `;
-
-                return card;
-            }
-
-            // Create the movie card and append it to the movieContainer
-            const movieCard = createMovieCard({
-                title: movieDetails.title,
-                director: director.name,
-                vote_average: movieDetails.vote_average,
-                poster_path: movieDetails.poster_path,
-                overview: movieDetails.overview,
-                genres: genresArr,
-            });
-
-            movieContainer.appendChild(movieCard);
-        },
-        error: function (error) {
-            console.log('Error:', error);
-        }
-    });
+      // Append the movie card to the movieContainer
+      document.getElementById('movieContainer').appendChild(movieCard);
+    },
+    error: function (error) {
+      console.log('Error:', error);
+    }
+  });
 });
