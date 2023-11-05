@@ -126,3 +126,17 @@ p{
 .movie-card:not(:hover) .movie-details .genre-list li {
   display: block;
 }
+
+@media (max-width: 768px) {
+  /* Styles for smaller screens */
+  #movieContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .movie-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
