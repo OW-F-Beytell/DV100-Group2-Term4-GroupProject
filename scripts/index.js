@@ -1,102 +1,126 @@
-$(document).ready(function() {
 
-    //-------------------------------------------------------------------------------------------------------
-    //Sign Up Form
-    //-------------------------------------------------------------------------------------------------------
+const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
+const movieContainer = $('#movieContainer');
 
-    //On Submit, prevent default form submission behaviour and do this instead.
+// Function to create a carousel item from movie data
+function createCarouselItem(movie) {
+    const director = movie.director ? movie.director : "N/A";
+    const rating = movie.vote_average ? movie.vote_average : "N/A";
 
-    $('#signupForm').submit(function(event) {
-
-        event.preventDefault();
-
-        if (this.checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            // Add any code that should run on submit
-            window.location.href = '../pages/homepage.html';
-        }
-        $(this).addClass('was-validated');
-    });
-
-
-    //-------------------------------------------------------------------------------------------------------
-    //Log In Form
-    //-------------------------------------------------------------------------------------------------------
-
-    $('#loginForm').submit(function(event) {
-
-        event.preventDefault();
-
-        if (this.checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            // Add any code that should run on submit
-            window.location.href = '../pages/homepage.html';
-        }
-        $(this).addClass('was-validated');
-    });
-
-});
-
-const form = document.querySelector('#signUpForm');
-const usernameInput = document.querySelector('#username');
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const confirmPasswordInput = document.querySelector('#confirmPassword');
-
-form.addEventListener('submit', (event) => {
-
-    event.preventDefault();
-    validateForm();
-
-});
-
-function validateForm() {
-    //username
-    if(usernameInput.ariaValueMax.trim() == ''){
-        setError(usernameInput, "Name is required");
-    } else if (usernameInput.trim().length < 5){
-        setError(usernameInput, "Name needs to contain a minimum of 3 characters");
-    } else {
-        setSuccess(usernameInput);
-    }
-
-    //email
-    if(emailInput.ariaValueMax.trim() == ''){
-        setError(emailInput, "Email address is required");
-    } else if (emailInput.trim().value){
-        setError(emailInput, "Provide a valid email address");
-    } else {
-        setSuccess(emailInput);
-    }
-
-    //password
-    if(passwordInput.ariaValueMax.trim() == ''){
-        setError(passwordInput, "Enter a password");
-    } else if (passwordInput.trim().length < 8){
-        setError(passwordInput, "Password must contain at least 8 characters");
-    } else {
-        setSuccess(passwordInput);
-    }
-
-    //confirm password
-    if(confirmPasswordInput.ariaValueMax.trim() == ''){
-        setError(confirmPasswordInput, "Enter a password");
-    } else if (confirmPasswordInput.trim().value !== passwordInput.value){
-        setError(confirmPasswordInput, "Password must contain at least 8 characters");
-    } else {
-        setSuccess(confirmPasswordInput);
-    }
-
+    return `
+        <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}" class="d-block w-100 background-img" alt="...">
+            <div class="overlay">
+                <div class="card m-5" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title">${movie.title}</h2>
+                                <p class="card-text">Director: ${director}</p>
+                                <p>Rating: ${rating}</p>
+                                <img src="assets/Retro-btn.svg">
+                                <img src="assets/Add-btn.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
 }
 
+$(document).ready(function () {
+    loadWelcomeMovieContent();
+})
 
-// Local Storage
-let validateForm_serialized = JSON.stringify(validateForm);
+function loadMovieContent(chosenGenreID) {
+    if(chosenGenreID == null){
+        const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
+    }
+    else{
+        const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&with_genres${chosenGenreID}&append_to_response+credit,images`;
 
-localStorage.setItem("validateForm", validateForm_serialized);
+    };
+}
+    
 
-let validateForm_deserialized = JSON.parse(localStorage.getItem("validatedForm"));
+    
+    
+    $.ajax({
+        url: tmdbEndpoint,
+        method: 'GET',
+        success: function (data) {
+            const movies = data.results.slice(0, 25); // Load only 25 movies on with each genre
 
-console.log("validateForm", validateForm_deserialized);
+            console.log (movies);
+
+            movies.forEach(function (movie, index) {
+
+                const movieId = movie.id;
+                const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+
+                $.ajax({
+                    url: movieDetailsEndpoint,
+                    method: 'GET',
+                    success: function (movieDetails) {
+                        const director = movieDetails.credits.crew.find(person => person.job === "Director");
+                        
+                        const genresArr = [];
+
+                        movieDetails.genres.forEach(function(genre){
+                            genresArr.push(genre.name);
+                        });
+
+                        // Create the movie card HTML and append it to the container
+                        const movieCard = createMovieCard({
+                            movieID : movie.id,
+                            movieTitle: movie.title,
+                            movieDirector: director.name,
+                            movieScore: movie.vote_average,
+                            moviePoster: movie.poster_path,
+                            movieDescription: movieDetails.overview,
+                            movieGenreList: genresArr
+                        });
+
+                        // Append the card to the movieContainer
+                        movieContainer.append(movieCard);
+
+                        // // Create the carousel item and append it to the carousel
+                        // const carouselItem = createCarouselItem(movie);
+                        // carouselInner.append(carouselItem);
+
+                        // console.log('-------------------------');
+                    },
+                    error: function (error) {
+                        console.log('Error:', error);
+                    }
+                });
+            });
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+
+
+
+function createMovieCard(movie) {
+    const director = movie.movieDirector ? movie.movieDirector : "N/A";
+    const rating = movie.movieScore ? movie.movieScore : "N/A";
+
+    let returnValue = `
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                        <h3> ${movie.movieTitle}</h3>
+                        <p>Director: ${director}<br> Rating: ${rating}</p>
+                        <a class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
+                        <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
+                    </div>
+                </div>
+            </div>`;
+    return returnValue;
+}

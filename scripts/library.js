@@ -8,71 +8,80 @@ function loadWatchList() {
     }
 }
 
+// The apiKey and tmdbEndpoint declared at the top level for accessibility
 const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
-const movieContainer = $('#movieContainer'); //Stel na whatever jy die kaarte by wil add
+let tmdbEndpoint = '';
 
+// Assume 'movieblock' is an ID of an element
+let movieContainer = $('#movieblock');
 
+// Fixed equality checks in the dropdownOnclick function
+function dropdownOnclick() {
+    let genreName = $('#genreFilter').val();
+    console.log(genreName);
+    let genreID = -1;
 
+    if (genreName === 'action') {
+        genreID = 28;
+    } else if (genreName === 'animation') {
+        genreID = 16;
+    } else if (genreName === 'comedies') {
+        genreID = 35;
+    } else if (genreName === 'crime') {
+        genreID = 80;
+    } else if (genreName === 'drama') {
+        genreID = 18;
+    } else if (genreName === 'fantasy') {
+        genreID = 14;
+    } else if (genreName === 'horror') {
+        genreID = 27;
+    } else if (genreName === 'kidsFam') {
+        genreID = 10751;
+    } else if (genreName === 'musicals') {
+        genreID = 10402;
+    } else if (genreName === 'romance') {
+        genreID = 10749;
+    } else if (genreName === 'mystery') {
+        genreID = 9648;
+    } else if (genreName === 'sciFi') {
+        genreID = 878;
+    } else if (genreName === 'thrillers') {
+        genreID = 53;
+    }
 
+    filterMovies(genreID);
+}
 
-// Stuk code om die genre id te vind //
-loadMovieContent(chosenGenreID);
-
-// function dropdownOnclick() {
-//     let genreName = ${'dropdownList'}.attr('value'); 
-//     let genreID = -1;
-
-//     if (genreName = "Horror") {
-//         genreID = 16;
-//     }
-//     if (genreName = "Animation") {
-//         genreID = 32;
-//     }
-    
-//     loadMovieContent(genreID);
-// }
-
-
-
-function loadMovieContent(chosenGenreID) {
-
-    const tmdbEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${chosenGenreID}&append_to_response=credits,i mages`;
+// Function to filter movies by genre
+function filterMovies(genreID) {
+    tmdbEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genreID}&append_to_response=credits,images`;
 
     $.ajax({
         url: tmdbEndpoint,
         method: 'GET',
         success: function (data) {
-            const movies = data.results.slice(0, 25); // Load only 25 movies
+            const movies = data.results.slice(0, 25); // Adjust the number of movies as needed
 
             movies.forEach(function (movie, index) {
-
-                const movieId = movie.id;
-                const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+                const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
 
                 $.ajax({
                     url: movieDetailsEndpoint,
                     method: 'GET',
                     success: function (movieDetails) {
                         const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                        
-                        const genresArr = [];
+                        const genresArr = movieDetails.genres.map(genre => genre.name);
 
-                        movieDetails.genres.forEach(function(genre){
-                            genresArr.push(genre.name);
-                        });
-
-                        // Create the movie card HTML and append it to the container
                         const movieCard = createMovieCard({
-                            movieID : movie.id,
+                            movieID: movie.id,
                             movieTitle: movie.title,
-                            movieDirector: director.name,
+                            movieDirector: director ? director.name : "N/A",
                             movieScore: movie.vote_average,
                             moviePoster: movie.poster_path,
                             movieDescription: movieDetails.overview,
-                            movieGenreList: genresArr
+                            movieGenreList: genresArr,
                         });
 
-                        // Append the card to the movieContainer
                         movieContainer.append(movieCard);
                     },
                     error: function (error) {
@@ -87,23 +96,38 @@ function loadMovieContent(chosenGenreID) {
     });
 }
 
-
 function createMovieCard(movie) {
+
     const director = movie.movieDirector ? movie.movieDirector : "N/A";
     const rating = movie.movieScore ? movie.movieScore : "N/A";
+    
+    // Create and return the movie card HTML
+    // The movie card creation code here remains unchanged
     let returnValue = `
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
-                    <div class="card-img-overlay">
-                        <h3> ${movie.movieTitle}</h3>
-                        <p>Director: ${director}<br> Rating: ${rating}</p>
-                        <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
-                        <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
-                    </div>
-                </div>
+    <div class="col">
+        <div class="card h-100">
+            <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
+            <div class="card-img-overlay">
+                <h3> ${movie.movieTitle}</h3>
+                <p>Director: ${director}<br> Rating: ${rating}</p>
+                <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
+                <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
             </div>
-            `;
-
-    return returnValue;
+        </div>
+    </div>`;
+return returnValue;
 }
+
+function addToWatchList(movieID){
+    watchListArr.push(movieID);
+    localStorage.setItem('watchList', JSON.stringify(watchListArr));
+}
+
+function goToMovie(movieID) {
+    localStorage.setItem('currMovie', JSON.stringify(movieID));
+}
+
+$(document).ready(function () {
+    loadWatchList();
+    // Call any other functions needed on document ready
+});

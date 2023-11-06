@@ -5,6 +5,7 @@
 /* font-family: 'Lora', serif;
 font-family: 'Sintony', sans-serif; */
 /* linear-gradient(60deg, #1549f5,  #10d46b,  #e73be1,  #d5d51b,  #4c95c9); */
+/* linear-gradient(60deg, #1549f5,  #10d46b,  #e73be1,  #d5d51b,  #4c95c9); */
 
 /* ----------------------------------------------------------------------------------*/
 /* Global Styles */
@@ -530,6 +531,13 @@ p{
     margin-bottom: 2%;
 }
 
+.form-select {
+    border-radius: 0.25rem;
+    width: 200px;
+    margin-left: 100px;
+    /* Additional styles can be added to suit your design */
+  }
+  
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
 
