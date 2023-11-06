@@ -543,6 +543,10 @@ p{
     width: 250px;
     border-radius: 2%;
 }
+.poster-individual{
+    width: 250px;
+    border-radius: 5%;
+}
 
 .rentMovie{
     color:#F1F4FF;
@@ -552,10 +556,7 @@ p{
 }
 
 .boxOffice{
-    width: 330px;
-    height: 130px;
-    background-image: url("../assets/boxoffice.jpeg");
-    border-radius: 2%;
+    width: 50%;
 }
 
 /* ----------------------------------------------------------------------------------*/
