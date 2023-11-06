@@ -222,6 +222,12 @@ p{
     font-weight: 800;
 }
 
+.usernameDisplay{
+    color: white;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
 /* ----------------------------------------------------------------------------------*/
 /* Footer */
 
