@@ -1,7 +1,3 @@
-
-const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
-const movieContainer = $('#movieContainer');
-
 // Function to create a carousel item from movie data
 function createCarouselItem(movie) {
     const director = movie.director ? movie.director : "N/A";

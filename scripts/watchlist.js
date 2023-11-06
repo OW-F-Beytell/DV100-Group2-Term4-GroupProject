@@ -95,7 +95,7 @@ watchlist.forEach(function (movieID) {
       });
 
       // Append the movie card to the movieContainer
-      document.getElementById('movieContainer').appendChild(movieCard);
+      // document.getElementById('#movieContainer').appendChild(movieCard);
     },
     error: function (error) {
       console.log('Error:', error);

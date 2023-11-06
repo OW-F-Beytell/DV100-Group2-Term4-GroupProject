@@ -1,4 +1,6 @@
+const apiKey = "453832e297403c7f70c5984dbfa5ebc9";
 let watchListArr = [];
+
 function loadWatchList() {
     if(localStorage.getItem('watchList') === null){
         watchListArr = [];
@@ -8,7 +10,6 @@ function loadWatchList() {
     }
 }
 
-const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
 const movieDetailsURL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
 
 const movieContainer = $('#movieContainer');
@@ -18,13 +19,8 @@ const carouselContainer = $('#movieCarousel');
 function createCarouselItem(movie) {
     const director = movie.movieDirector ? movie.movieDirector : "N/A";
     const rating = movie.movieScore ? movie.movieScore : "N/A";
-    console.log("hallo");
-    console.log(movie);
     let posterSrc = 'https://image.tmdb.org/t/p/w500' + movie.moviePoster;
     let backdropSrc = 'https://image.tmdb.org/t/p/w500' + movie.movieBackdrop;
-    console.log(backdropSrc);
-    console.log(movie.moviePoster);
-    console.log(movie.movieBackdrop);
 
     return `
     <div class="carousel-item">
@@ -52,7 +48,7 @@ function createCarouselItem(movie) {
 
 $(document).ready(function () {
     loadWelcomeMovieContent();
-})
+});
 
 function loadWelcomeMovieContent() {
 
