@@ -35,92 +35,29 @@ $(document).ready(function () {
     loadWelcomeMovieContent();
 })
 
-function loadMovieContent(chosenGenreID) {
-    if(chosenGenreID == null){
-        const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
-    }
-    else{
-        const tmdbEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&with_genres${chosenGenreID}&append_to_response+credit,images`;
+// Local Storage username
+// function saveName(username) {
+//     localStorage.setItem('currMovie', JSON.stringify(username));
+// } onclick="saveName(${name.username});"
 
-    };
-}
-    
+let userDetails = []
 
-    
-    
-    $.ajax({
-        url: tmdbEndpoint,
-        method: 'GET',
-        success: function (data) {
-            const movies = data.results.slice(0, 25); // Load only 25 movies on with each genre
+saveUserDetails = () => {
 
-            console.log (movies);
+  let username = document.getElementById('username').value;
+  let userEmail = document.getElementById('email').value;
+  let userPassword = document.getElementById('password').value;
 
-            movies.forEach(function (movie, index) {
+  userDetails.push({
+    username: username,
+    userEmail: userEmail,
+    userPassword: userPassword // Fix the variable name here
+  });
 
-                const movieId = movie.id;
-                const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+  console.log(userDetails);
+  document.getElementById("signupForm").reset(); // Fix the form id here
 
-                $.ajax({
-                    url: movieDetailsEndpoint,
-                    method: 'GET',
-                    success: function (movieDetails) {
-                        const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                        
-                        const genresArr = [];
-
-                        movieDetails.genres.forEach(function(genre){
-                            genresArr.push(genre.name);
-                        });
-
-                        // Create the movie card HTML and append it to the container
-                        const movieCard = createMovieCard({
-                            movieID : movie.id,
-                            movieTitle: movie.title,
-                            movieDirector: director.name,
-                            movieScore: movie.vote_average,
-                            moviePoster: movie.poster_path,
-                            movieDescription: movieDetails.overview,
-                            movieGenreList: genresArr
-                        });
-
-                        // Append the card to the movieContainer
-                        movieContainer.append(movieCard);
-
-                        // // Create the carousel item and append it to the carousel
-                        // const carouselItem = createCarouselItem(movie);
-                        // carouselInner.append(carouselItem);
-
-                        // console.log('-------------------------');
-                    },
-                    error: function (error) {
-                        console.log('Error:', error);
-                    }
-                });
-            });
-        },
-        error: function (error) {
-            console.log('Error:', error);
-        }
-    });
-
-
-
-function createMovieCard(movie) {
-    const director = movie.movieDirector ? movie.movieDirector : "N/A";
-    const rating = movie.movieScore ? movie.movieScore : "N/A";
-
-    let returnValue = `
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
-                    <div class="card-img-overlay">
-                        <h3> ${movie.movieTitle}</h3>
-                        <p>Director: ${director}<br> Rating: ${rating}</p>
-                        <a class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
-                        <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
-                    </div>
-                </div>
-            </div>`;
-    return returnValue;
+  let data = JSON.stringify(userDetails);
+  localStorage.setItem('order', data);
+  window.location.href = 'index.html'
 }
