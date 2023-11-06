@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7| Umbrella Cinema: Movie Watch List Page</title>
+    <title>3| Umbrella Cinema: Log In Page</title>
 
     <!-- Style Sheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -24,26 +24,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-              <li class="nav-item">
-                <a class="nav-link "  href="../pages/homepage.html"><strong>Home</strong></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/librarypage.html">Movie Library</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../pages/watchlistpage.html"><strong>Watch List</strong></a>
-              </li>
-
-
-              <div class="logOut">
-                <li class="nav-item">
-                  <a class="nav-link" href="/index.html">Log Out</a>
-                </li>
-              </div>
-
+                <a class="nav-link " href="../pages/homepage.html"><h4>Start watching now!</h4></a>
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2 search-btn" type="search" placeholder="Search" aria-label="Search">
@@ -57,41 +38,38 @@
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Page Contents -->
 <body>
+    
+    <div class="header-con3">
+        <div class="container  vh-100">
+            <div class="row justify-content-center pt-5">
+                <div class="col-lg-6 col-md-8 col-sm-10" class="col-xs-12 col-md-6 mt-5 card loginForm rounded-4 p-5">
+                    <h2>Log In</h2>
+                    <a class="goBack" href="../pages/signup.html">Don't have an account? Sign Up!</a>
+                    <form id="loginForm" class="mt-5" novalidate="">
+                        <div class="form-group">
+                            <label>Username:</label>
+                            <input class="form-control" name="username" id="username" type="text" required>
+                            
+                            <label>Email Address:</label>
+                            <input class="form-control" name="email" id="email" type="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
 
-    <div class="row">
-        <div class="pageIntro">
-            <h2>Your Watch List</h2>
-             <p>Your favorite films are waiting to be enjoyed at your fingertips.</p>
-        </div>
-    </div>
+                            <label>Password:</label>
+                            <input class="form-control" name="password" id="password" type="password" minlength="6" required>
+                            <div class="invalid-feedback">Password must be at least 6 characters long.</div>
 
-
-    <!-- Filter -->
-    <div class="badge rounded-pill text-bg-light genreFilters"   aria-label="Basic checkbox toggle button group">
-        <input type="radio" class="btn-check" class="badge rounded-pill text-bg-light" type="radio"  name="filterCheck" id="action" value="action" autocomplete="off">
-        <label class="btn" for="singleDestinationFilter"><i class="bi bi-check2-circle"></i>Downloaded</label>
-    </div>
-
-
-        <!-- Movies on Watch list-->
-        <div class="row movies">
-          <div class="col-sm-6 col-lg-3 col-md-4 col-xl-3 mb-3 col-xxl-2"> 
-            <div class="col-3">
-                <div class="card box movie1">
-                    <div class="card-body overlay2">
-                      <h5 class="card-title">Movie Title</h5>
-                      <p class="card-text">Movie details and further information</p>
-                      <a href="../pages/individual page.html" class="btn btn-watch">WATCH NOW</a>
-                    </div>
-                </div>    
+                            <button class="btn btn-loginForm1 mt-4" type="submit">Log In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
+    </div>
 
 </body>
 
     <!-- ------------------------------------------------------------------------------------------------ -->
-    <!-- Footer -->
+    <!-- Footer-->
     <footer>
         <div class="container-fluid footer">
          <div class="row">
@@ -125,7 +103,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="../scripts/watchlist.js"></script>  
+    <script src="../scripts/index.js"></script>  
 
-    
+
 </html>
