@@ -18,13 +18,25 @@ const movieContainer = $('#movieContainer'); //Stel na whatever jy die kaarte by
 // Stuk code om die genre id te vind //
 loadMovieContent(chosenGenreID);
 
+// function dropdownOnclick() {
+//     let genreName = ${'dropdownList'}.attr('value'); 
+//     let genreID = -1;
 
+//     if (genreName = "Horror") {
+//         genreID = 16;
+//     }
+//     if (genreName = "Animation") {
+//         genreID = 32;
+//     }
+    
+//     loadMovieContent(genreID);
+// }
 
 
 
 function loadMovieContent(chosenGenreID) {
 
-    const tmdbEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${chosenGenreID}&append_to_response=credits,images`;
+    const tmdbEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${chosenGenreID}&append_to_response=credits,i mages`;
 
     $.ajax({
         url: tmdbEndpoint,

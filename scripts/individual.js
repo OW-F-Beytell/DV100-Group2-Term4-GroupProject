@@ -10,7 +10,7 @@ function loadWatchList() {
 }
 
 let currMovieID = null;
-
+let trailerContainer = $('#trailerContainer');
 function loadCurrMovie() {
     if(localStorage.getItem('currMovie') === null){
         currMovieID = null;
@@ -69,11 +69,14 @@ function loadCurrMovie() {
                     let numMins = mins - numHours*60;
                     return numHours.toString() + "h " + numMins.toString() + "mins";                    
                 }
-                let movieVids = currMovie.videos;
-                let movieTrailer = movieVids.results.forEach(function (video) {
+                let movieVids = currMovie.videos.results;
+                console.log("hiiiiiiiiiiiiiii");
+                console.log(movieVids);
+                let videoAddress = "";
+               movieVids.forEach(function (video) {
                     if (video.type === "Trailer") {
                         console.log(video); 
-                        let videoAddress = video;
+                        videoAddress = "https://www.youtube.com/watch?v=" + video.key;
                     }
                 })
                 // Create the movie card HTML and append it to the container
@@ -87,6 +90,7 @@ function loadCurrMovie() {
                     movieDirector: directorArr.join(", "),
                     movieScore: currMovie.vote_average,
                     moviePoster: currMovie.poster_path,
+                    movieTrailer: videoAddress,
                     movieGenreList: genresArr.join(" | ")
                 };
 
@@ -97,11 +101,10 @@ function loadCurrMovie() {
                 <strong>Creators:</strong> ${movieDetails.movieDirector} <br>
                 <strong>Audience Rating:</strong> ${(movieDetails.movieScore *10).toFixed(2)}%`);
                 $('#posterContainer').attr("src", "https://image.tmdb.org/t/p/w500"+movieDetails.moviePoster);
-                $('#trailerContainer').append(`
-                    <img src="https://image.tmdb.org/t/p/w500${movieDetails.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="..."></img>
+                trailerContainer.append(`
+                    <iframe src="https://www.youtube.com/embed/SEUXfv87Wpk?si=eyyXYAhVGvJKGieb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
                 `);
-                console.log(currMovie);
-                console.log(movieDetails);
+                loadSimilarMovies(currMovies.genres);
             },
             error: function (error) {
                 console.log('Error:', error);
