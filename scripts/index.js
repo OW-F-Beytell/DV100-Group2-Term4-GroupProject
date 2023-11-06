@@ -54,7 +54,7 @@ function loadMovieContent(chosenGenreID) {
         success: function (data) {
             const movies = data.results.slice(0, 25); // Load only 25 movies on with each genre
 
-            console.log {movies};
+            console.log (movies);
 
             movies.forEach(function (movie, index) {
 
