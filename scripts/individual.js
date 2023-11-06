@@ -1,3 +1,9 @@
+const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
+// const movieAPIEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
+let currMovieID = null;
+let trailerContainer = $('#trailerContainer');
+const suggestedMovieContainer = $('#suggestedMovieContainer');
+
 let watchListArr = [];
 function loadWatchList() {
     if(localStorage.getItem('watchList') === null){
@@ -9,8 +15,6 @@ function loadWatchList() {
     }
 }
 
-let currMovieID = null;
-let trailerContainer = $('#trailerContainer');
 function loadCurrMovie() {
     if(localStorage.getItem('currMovie') === null){
         currMovieID = null;
@@ -35,7 +39,6 @@ function loadCurrMovie() {
         `);
 
         currMovieID = JSON.parse(localStorage.getItem('currMovie'));
-        // console.log(currMovieID);
 
         const movieDetailsURL = `https://api.themoviedb.org/3/movie/${currMovieID}?api_key=${apiKey}&language=en-US&with_crew&append_to_response=credits,images,videos,release_dates`;
         $.ajax({
@@ -104,77 +107,86 @@ function loadCurrMovie() {
                 trailerContainer.append(`
                     <iframe src="${movieDetails.movieTrailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
                 `);
-                loadSimilarMovies(currMovies.genres);
+
+                loadSimilarMovies(currMovie.genres);
             },
             error: function (error) {
                 console.log('Error:', error);
             }
-        
-    
     });
 }
 }
 
-const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
-const movieAPIEndpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
-
-const suggestedMovieContainer = $('#suggestedMovieContainer');
 
 
 $(document).ready(function () {
     loadCurrMovie();
     loadWatchList();
-    loadSuggestedMovieContent();
 })
 
-function loadSuggestedMovieContent() {
-    $.ajax({
-        url: movieAPIEndpoint,
-        method: 'GET',
-        success: function (data) {
-            const movies = data.results.slice(0, 12);
+function createSuggestionRow(){
+    return `
+        <div class="row row-cols-2 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="suggestionContainer">
+            
+        </div>
+    `;
+}
 
-            movies.forEach(function (movie, index) {
+function loadSimilarMovies(genres) {
+    genres.forEach(function (genre) {
+        const movieAPIEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&append_to_response=credits,images`;
+        genreRow = createSuggestionRow();
+        suggestedMovieContainer.append(genreRow);
 
-                const movieId = movie.id;
-                const movieDetailsURL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+        $.ajax({
+            url: movieAPIEndpoint,
+            method: 'GET',
+            success: function (data) {
+                const movies = data.results.slice(0, 10);
 
-                $.ajax({
-                    url: movieDetailsURL,
-                    method: 'GET',
-                    success: function (movieDetails) {
-                        const director = movieDetails.credits.crew.find(person => person.job === "Director");
-                        
-                        const genresArr = [];
+                movies.forEach(function (movie, index) {
 
-                        movieDetails.genres.forEach(function(genre){
-                            genresArr.push(genre.name);
-                        });
+                    const movieId = movie.id;
+                    const movieDetailsURL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
 
-                        // Create the movie card HTML and append it to the container
-                        const movieCard = createMovieCard({
-                            movieID : movie.id,
-                            movieTitle: movie.title,
-                            movieDirector: director.name,
-                            movieScore: movie.vote_average,
-                            moviePoster: movie.poster_path,
-                            movieDescription: movieDetails.overview,
-                            movieGenreList: genresArr
-                        });
+                    $.ajax({
+                        url: movieDetailsURL,
+                        method: 'GET',
+                        success: function (movieDetails) {
+                            const director = movieDetails.credits.crew.find(person => person.job === "Director");
+                            
+                            const genresArr = [];
 
-                        // Append the card to the movieContainer
-                        suggestedMovieContainer.append(movieCard);
-                    },
-                    error: function (error) {
-                        console.log('Error:', error);
-                    }
+                            movieDetails.genres.forEach(function(genre){
+                                genresArr.push(genre.name);
+                            });
+
+                            // Create the movie card HTML and append it to the container
+                            const movieCard = createMovieCard({
+                                movieID : movie.id,
+                                movieTitle: movie.title,
+                                movieDirector: director.name,
+                                movieScore: movie.vote_average,
+                                moviePoster: movie.poster_path,
+                                movieDescription: movieDetails.overview,
+                                movieGenreList: genresArr
+                            });
+
+                            // Append the card to the movieContainer
+                            genreRow.append(movieCard);
+                        },
+                        error: function (error) {
+                            console.log('Error:', error);
+                        }
+                    });
                 });
-            });
-        },
-        error: function (error) {
-            console.log('Error:', error);
-        }
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
     });
+    
 }
 
 
