@@ -93,6 +93,28 @@ function validateForm() {
 
 
 // Local Storage username
-function saveName(username) {
-    localStorage.setItem('currMovie', JSON.stringify(username));
+// function saveName(username) {
+//     localStorage.setItem('currMovie', JSON.stringify(username));
+// } onclick="saveName(${name.username});"
+
+let userDetails = []
+
+saveUserDetails = () => {
+
+  let username = document.getElementById('username').value;
+  let userEmail = document.getElementById('email').value;
+  let userPassword = document.getElementById('password').value;
+
+  userDetails.push({
+    username: username,
+    userEmail: userEmail,
+    userPassword: userPassword // Fix the variable name here
+  });
+
+  console.log(userDetails);
+  document.getElementById("signupForm").reset(); // Fix the form id here
+
+  let data = JSON.stringify(userDetails);
+  localStorage.setItem('order', data);
+  window.location.href = 'index.html'
 }

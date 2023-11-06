@@ -85,7 +85,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Authors
 
-* **Nicola Prinsloo** - *Javascript, HTML, CSS & API* - [Nicola Prinsloo](https://github.com/nicolaprinsloo)
+* **Nicola Prinsloo** - *Javascript, HTML, main CSS & API* - [Nicola Prinsloo](https://github.com/nicolaprinsloo)
 * **Frederick Beytell** - *Javascript, HTML, CSS & API* - [Frederick Beytell](https://github.com/OW-F-Beytell)
 * **Francois le Roux** - *Javascript, HTML, CSS & API* - [Francois le Roux](https://github.com/nicolaprinsloo)
 * **Jaco Mostert** - *Javascript, HTML, CSS & API* - [Jaco Mostert](https://github.com/nicolaprinsloo)
@@ -100,8 +100,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Thank you [PaulLoots](https://github.com/PaulLoots) and Tsungai Katsuro for educating us in this term's theory.
 * Thank you [CarloOpenWindow](https://github.com/CarloOpenWindow) for assistance throughout the term.
+* Thank you Kayla Posthumus for being a helpful guide.
 * [Pinterest Inspiration](https://za.pinterest.com/nix231021/dv100/?invite_code=9d2c0a1f491c454580025d468347bee0&sender=939071097209497938)
-* Thanks to Chat GPT for providing text and content for my project.
+* Thanks to Chat GPT for providing text and content for our project.
 
  ## Plagiarism Declaration
 
