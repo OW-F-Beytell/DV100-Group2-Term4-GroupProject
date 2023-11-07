@@ -92,6 +92,7 @@ function setMovieID(movieID) {
 
 $(document).ready(function () {
     loadWelcomeMovieContent();
+    $('#details').html(`<p><strong>Welcome username!</strong></p>`);
 });
 
 function loadWelcomeMovieContent() {
