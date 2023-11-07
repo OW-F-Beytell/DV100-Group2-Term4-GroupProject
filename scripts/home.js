@@ -1,3 +1,15 @@
+//Local storage retieve of username
+// let userDetails = [];
+// function saveUserDetails() {
+//     if(localStorage.getItem('username') === null){
+//         userDetails = [];
+//     }
+//     else{
+//         userDetails = JSON.parse(localStorage.getItem('details'));
+//     }
+// }
+
+//API
 const apiKey = "453832e297403c7f70c5984dbfa5ebc9";
 let watchListArr = [];
 
@@ -22,9 +34,13 @@ function createCarouselItem(movie) {
     let posterSrc = 'https://image.tmdb.org/t/p/w500' + movie.moviePoster;
     let backdropSrc = 'https://image.tmdb.org/t/p/w500' + movie.movieBackdrop;
 
+    // itemCounter++;
+
+    // if (itemCounter === 0){
+
     return `
-    <div class="carousel-item">
-        <img src="${backdropSrc}" class="d-block w-100 background-img" alt="...">
+    <div class="carousel-item actives">
+        <img src="${backdropSrc}" class="d-block w-100 background-img" alt="top movies carousel">
         <div class="overlay">
             <div class="card m-5" style="max-width: 540px;">
                 <div class="row g-0">
@@ -46,6 +62,31 @@ function createCarouselItem(movie) {
     `;
 }
 
+//     return `
+//     <div class="carousel-item actives">
+//         <img src="${backdropSrc}" class="d-block w-100 background-img" alt="top movies carousel">
+//         <div class="overlay">
+//             <div class="card m-5" style="max-width: 540px;">
+//                 <div class="row g-0">
+//                     <div class="col-md-4">
+//                         <img src="${posterSrc}" class="img-fluid rounded-start" alt="...">
+//                     </div>
+
+//                     <div class="col-md-8">
+//                         <div class="card-body">
+//                             <h2 class="card-title">${movie.movieTitle}</h2>
+//                             <p class="card-text">Director: ${director}</p>
+//                             <p>Rating: ${rating}</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     `;
+
+// }
+
 $(document).ready(function () {
     loadWelcomeMovieContent();
 });
@@ -58,7 +99,9 @@ function loadWelcomeMovieContent() {
         success: function (data) {
             const movies = data.results.slice(0, 12); // Load only 12 movies
 
-
+       // Create the carousel items
+        // const carouselInner = $('.carousel-inner');
+        // carouselInner.empty();
 
             movies.forEach(function (movie, index) {
 
@@ -106,11 +149,13 @@ function loadWelcomeMovieContent() {
 
                         // Append the card to the movieContainer
                         movieContainer.append(movieCard);
+                            
+                        // Create the carousel item and append it to the carousel
+                        // const carouselItems = createCarouselItem(movie);
+                        // carouselInner.append(carouselItems);
 
-                        if (index < 3) {
-                            carouselContainer.append(carouselItem);
-                        }
                     },
+
                     error: function (error) {
                         console.log('Error:', error);
                     }

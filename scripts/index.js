@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
     //-------------------------------------------------------------------------------------------------------
     //Sign Up Form
@@ -92,15 +91,15 @@ saveUserDetails = () => {
   userDetails.push({
     username: username,
     userEmail: userEmail,
-    userPassword: userPassword // Fix the variable name here
+    userPassword: userPassword 
   });
 
   console.log(userDetails);
-  document.getElementById("signupForm").reset(); // Fix the form id here
+  document.getElementById("signupForm").reset(); 
 
   let data = JSON.stringify(userDetails);
-  localStorage.setItem('order', data);
-  window.location.href = 'index.html'
+  localStorage.setItem('userDetails', data);
+  window.location.href = '../homepage.html'
 }
 
 // Local Storage username
