@@ -537,6 +537,20 @@ p{
     margin-left: 100px;
     /* Additional styles can be added to suit your design */
   }
+
+  .form-select {
+    border-radius: 0.25rem;
+    width: 200px;
+    margin-left: 100px;
+    /* Additional styles can be added to suit your design */
+  }
+
+  .form-select {
+    border-radius: 0.25rem;
+    width: 200px;
+    margin-left: 100px;
+    /* Additional styles can be added to suit your design */
+  }
   
 /* ----------------------------------------------------------------------------------*/
 /* Individual Movie Page */
