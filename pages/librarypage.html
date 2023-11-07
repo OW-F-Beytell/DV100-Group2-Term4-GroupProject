@@ -59,42 +59,39 @@
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Page Contents -->
 <body>
-
-    <div class="row">
-        <div class="pageIntro">
-            <h2>Your Movie Library</h2>
-             <p>Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is just a click away!</p>
-        </div>
-    </div>
-
-    <!-- Filter -->
-    <div class="col-auto">
-      <select class="form-select" name="genreFilter" id="genreFilter" onchange="dropdownOnclick()">
-        <option value="all" selected>All</option>
-        <option value="action">Action</option>
-        <option value="animation">Animation</option>
-        <option value="comedies">Comedies</option>
-        <option value="crime">Crime</option>
-        <option value="dramas">Dramas</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="horror">Horror</option>
-        <option value="kidsFam">Kids & Family</option>
-        <option value="musicals">Musicals</option>
-        <option value="romance">Romance</option>
-        <option value="mystery">Mystery</option>
-        <option value="sciFi">Sci-Fi</option>
-        <option value="thrillers">Thrillers</option>
-      </select>
-    </div>
-    
-
-
     <!-- Movies -->
-    <div class="row movies">
-      <div class="col-sm-6 col-lg-3 col-md-4 col-xl-3 mb-3 col-xxl-2" id="movieblock"> 
-        <div class="row row-cols-1 row-cols-xl-6 row-cols-lg-4 row-cols-md-3 row-cols-xs-2 g-4" id="movieContainer">
-          
-        </div>
+    <div class="container">
+      <div class="row">
+          <div class="pageIntro">
+              <h2>Your Movie Library</h2>
+              <p>Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is just a click away!</p>
+          </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="row col-auto">
+        <select class="form-select" name="genreFilter" id="genreFilter" onchange="dropdownOnclick()">
+          <option value="all" selected>All</option>
+          <option value="action">Action</option>
+          <option value="animation">Animation</option>
+          <option value="comedies">Comedies</option>
+          <option value="crime">Crime</option>
+          <option value="dramas">Dramas</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="kidsFam">Kids & Family</option>
+          <option value="musicals">Musicals</option>
+          <option value="romance">Romance</option>
+          <option value="mystery">Mystery</option>
+          <option value="sciFi">Sci-Fi</option>
+          <option value="thrillers">Thrillers</option>
+        </select>
+      </div>
+
+      <div class="row movies">
+          <div class="row row-cols-2 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="movieContainer">
+            
+          </div>
       </div>
     </div>
 

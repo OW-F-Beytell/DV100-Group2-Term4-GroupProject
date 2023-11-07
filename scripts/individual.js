@@ -118,7 +118,7 @@ function loadCurrMovie() {
 $(document).ready(function () {
     loadCurrMovie();
     loadWatchList();
-})
+});
 
 function createSuggestionRow(){
     return `
@@ -204,11 +204,11 @@ function createMovieCard(movie) {
             <div class="col">
                 <div class="card h-100">
                     <img src="https://image.tmdb.org/t/p/w500${movie.moviePoster}" style="border-radius: 20px;" class="card-img-top" alt="...">
-                    <div class="card-img-overlay">
-                        <h3> ${movie.movieTitle}</h3>
-                        <p>Director: ${director}<br> Rating: ${rating}</p>
-                        <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
-                        <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
+                    <div class="card-img-overlay align-items-center">
+                            <h3> ${movie.movieTitle}</h3>
+                            <p>Director: ${director}<br> Rating: ${rating}</p>
+                            <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
+                            <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
                     </div>
                 </div>
             </div>`;
