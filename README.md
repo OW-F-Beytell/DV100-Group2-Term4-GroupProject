@@ -8,10 +8,7 @@ Whether you're at home, on the go, or simply seeking some rainy-day entertainmen
 
 So, join us on this cinematic journey. Grab your popcorn, find a comfortable spot, and let the movies begin. Umbrella Cinema - Where Every Screen Becomes a Window to the World of Film.
 
-* [Umbrella Cinema Reveal Video](https://drive.google.com/file/d/1vA8S8UfR9Gtsj-ZxwXiRjZMQQPhvwmbG/view?usp=share_link)
-
-* [Umbrella Cinema Walkthrough Video](https://drive.google.com/drive/folders/1ro8NnotYsuFlRobZn9v0cugqQjTNdkgS?usp=share_link)
-
+* [UmbrellaCinemaRevealVideo](https://drive.google.com/file/d/1vA8S8UfR9Gtsj-ZxwXiRjZMQQPhvwmbG/view?usp=share_link)
 
 ### Movie Watch List
 
