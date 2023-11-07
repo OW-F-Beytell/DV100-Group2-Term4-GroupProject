@@ -12,7 +12,6 @@
     <link rel="icon" type="image/x-icon" href="../assets/flaticon.svg">
 
 </head>
-
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Nav Bar -->
 <navbar>
@@ -50,6 +49,8 @@
               <input class="form-control me-2 search-btn" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Go</button>
             </form>
+
+            
           </div>
         </div>
       </nav>
@@ -58,73 +59,39 @@
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Page Contents -->
 <body>
-
-    <div class="row">
-        <div class="pageIntro">
-            <h2>Your Movie Library</h2>
-             <p>Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is just a click away!</p>
-        </div>
-    </div>
-
-    <!-- Filter -->
-    <div class="btn-group col-auto" role="group">
-      <input type="radio" class="btn-check" name="genreFilter" id="all" value="all" autocomplete="off" checked>
-      <label class="btn btn-outline-primary" for="all">All</label>
-
-        <input type="radio" class="btn-check"  name="filterCheck" id="action" value="action" autocomplete="off">
-        <label class="btn btn-outline-primary" for="action">Action</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="anime" value="anime" autocomplete="off">
-        <label class="btn btn-outline-primary" for="anime">Anime</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="comedies" value="comedies" autocomplete="off">
-        <label class="btn btn-outline-primary" for="comedies">Comedies</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="crime" value="crime" autocomplete="off">
-        <label class="btn btn-outline-primary" for="crime">Crime</label>
-
-        <input type="radio" class="btn-check"  name="filterCheck" id="dramas" value="dramas" autocomplete="off">
-        <label class="btn btn-outline-primary" for="dramas">Dramas</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="fantasy" value="fantasy" autocomplete="off">
-        <label class="btn btn-outline-primary" for="fantasy">Fantasy</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="horror" value="horror" autocomplete="off">
-        <label class="btn btn-outline-primary" for="horror">Horror</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="kidsFam" value="kidsFam" autocomplete="off">
-        <label class="btn btn-outline-primary" for="kidsFam">Kids & Family</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="musicals" value="musicals" autocomplete="off">
-        <label class="btn btn-outline-primary" for="musicals">Musicals</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="romance" value="romance" autocomplete="off">
-        <label class="btn btn-outline-primary" for="romance">Romance</label>
-
-        <input type="radio" class="btn-check"  name="filterCheck" id="romCom" value="romCom" autocomplete="off">
-        <label class="btn btn-outline-primary" for="romCom">Romantic Comedy</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="sciFi" value="sciFi" autocomplete="off">
-        <label class="btn btn-outline-primary" for="sciFi">Sci-Fi</label>
-
-        <input type="radio" class="btn-check" name="filterCheck" id="thrillers" value="thrillers" autocomplete="off">
-        <label class="btn btn-outline-primary" for="thrillers">Thrillers</label>
-    </div>
-
-
     <!-- Movies -->
-    <div class="row movies">
-      <div class="col-sm-6 col-lg-3 col-md-4 col-xl-3 mb-3 col-xxl-2"> 
-        <div class="col-3 movie-container">
-          <img class="movie-block" src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-            <div class="card box movie1">
-                <div class="card-body overlay2">
-                  <h4> ${movie.title} </h4>
-                  <p>Director: ${director} <br> Rating: ${rating}</p>
-                  <a href="../pages/individual page.html" class="btn btn-watch">WATCH NOW</a>
-                </div>
-            </div>    
-        </div>
+    <div class="container">
+      <div class="row">
+          <div class="pageIntro">
+              <h2>Your Movie Library</h2>
+              <p>Browse through our vast collection of films and discover your next cinematic adventure. Your perfect movie is just a click away!</p>
+          </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="row col-auto">
+        <select class="form-select" name="genreFilter" id="genreFilter" onchange="dropdownOnclick()">
+          <option value="all" selected>All</option>
+          <option value="action">Action</option>
+          <option value="animation">Animation</option>
+          <option value="comedies">Comedies</option>
+          <option value="crime">Crime</option>
+          <option value="dramas">Dramas</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="kidsFam">Kids & Family</option>
+          <option value="musicals">Musicals</option>
+          <option value="romance">Romance</option>
+          <option value="mystery">Mystery</option>
+          <option value="sciFi">Sci-Fi</option>
+          <option value="thrillers">Thrillers</option>
+        </select>
+      </div>
+
+      <div class="row movies">
+          <div class="row row-cols-2 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="movieContainer">
+            
+          </div>
       </div>
     </div>
 
@@ -158,8 +125,7 @@
     
          </div>
         </div> 
-      </footer>
-    
+      </footer>   
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
