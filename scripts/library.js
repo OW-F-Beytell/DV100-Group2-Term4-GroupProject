@@ -10,10 +10,57 @@ function loadWatchList() {
 
 // The apiKey and tmdbEndpoint declared at the top level for accessibility
 const apiKey = '453832e297403c7f70c5984dbfa5ebc9';
-let tmdbEndpoint = '';
+let tmdbURL = '';
 
 // Assume 'movieblock' is an ID of an element
-let movieContainer = $('#movieblock');
+let movieContainer = $('#movieContainer');
+
+$(document).ready(function () {
+    loadInitialContent();
+});
+
+function loadInitialContent() {
+    tmdbURL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1&sort_by=popularity.desc`;
+
+    $.ajax({
+        url: tmdbURL,
+        method: 'GET',
+        success: function (data) {
+            const movies = data.results.slice(0, 25); // Adjust the number of movies as needed
+
+            movies.forEach(function (movie, index) {
+                const movieDetailsEndpoint = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US&append_to_response=credits,images`;
+
+                $.ajax({
+                    url: movieDetailsEndpoint,
+                    method: 'GET',
+                    success: function (movieDetails) {
+                        const director = movieDetails.credits.crew.find(person => person.job === "Director");
+                        const genresArr = movieDetails.genres.map(genre => genre.name);
+
+                        const movieCard = createMovieCard({
+                            movieID: movie.id,
+                            movieTitle: movie.title,
+                            movieDirector: director ? director.name : "N/A",
+                            movieScore: movie.vote_average,
+                            moviePoster: movie.poster_path,
+                            movieDescription: movieDetails.overview,
+                            movieGenreList: genresArr,
+                        });
+
+                        movieContainer.append(movieCard);
+                    },
+                    error: function (error) {
+                        console.log('Error:', error);
+                    }
+                });
+            });
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+}
 
 // Fixed equality checks in the dropdownOnclick function
 function dropdownOnclick() {
@@ -54,10 +101,10 @@ function dropdownOnclick() {
 
 // Function to filter movies by genre
 function filterMovies(genreID) {
-    tmdbEndpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genreID}&append_to_response=credits,images`;
-
+    tmdbURL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genreID}&append_to_response=credits,images`;
+    movieContainer.empty();
     $.ajax({
-        url: tmdbEndpoint,
+        url: tmdbURL,
         method: 'GET',
         success: function (data) {
             const movies = data.results.slice(0, 25); // Adjust the number of movies as needed
