@@ -1,5 +1,5 @@
 # DV100 Group2 | Term4 Group Project
-![Umbrella Cinema Logo](/assets/Cinema%20Logo%20Main.png)
+![Umbrella Cinema Logo](/assets/ReadMeLogo.png)
 
 Welcome to Umbrella Cinema, where cinematic dreams come to life! At Umbrella Cinema, we believe in the magic of movies, and we're here to share that magic with you. Whether you're a film enthusiast, a casual viewer, or just looking for some entertainment, you've found your perfect destination.
 
@@ -7,6 +7,10 @@ Our mission is simple: to provide you with an exceptional movie-watching experie
 Whether you're at home, on the go, or simply seeking some rainy-day entertainment, Umbrella Cinema has you covered. We're accessible on multiple devices, and with our user-friendly interface, finding your favorite films is a breeze.
 
 So, join us on this cinematic journey. Grab your popcorn, find a comfortable spot, and let the movies begin. Umbrella Cinema - Where Every Screen Becomes a Window to the World of Film.
+
+* [UmbrellaCinemaRevealVideo](https://drive.google.com/file/d/1vA8S8UfR9Gtsj-ZxwXiRjZMQQPhvwmbG/view?usp=share_link)
+
+### Movie Watch List
 
 
 
@@ -39,18 +43,27 @@ Umbrella Cinema is a testament to Bootstrap's magic, ensuring an enjoyable exper
 And the best part? We're live! Umbrella Cinema is hosted on a server powered by Axxess, ready to bring movie magic to your screens.
 
 Join us on this learning journey, and let's explore the world of cinema together!
+### Sign In/Up 
+
+![UmbrellaCinemaSignIn/UpPage](/assets/ReadMeSignPage.png)
 
 ### Home
 
-![UmbrellaCinemaHomePage](/assets/)
+![UmbrellaCinemaHomePage](/assets/ReadMeHomePage.png)
 
 ### Browse Movies Library
 
-![UmbrellaCinemaLibraryPage](/assets/)
+![UmbrellaCinemaLibraryPage](/assets/ReadMeLibraryPage.png)
 
 ### Movie Watch List
 
-![UmbrellaCinemaWatchListPage](/assets/)
+![UmbrellaCinemaWatchListPage](/assets/ReadMeWatchlistPage.png)
+
+### Responsive adn available on MOBILE and DESKTOP
+
+![UmbrellaCinemaDesktop](/assets/ReadMeDesktop.png)
+![UmbrellaCinemaMobile](/assets/ReadMeMobile.png)
+
 
 ## Getting Started
 
