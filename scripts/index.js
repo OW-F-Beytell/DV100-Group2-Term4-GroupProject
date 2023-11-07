@@ -1,40 +1,85 @@
-// Function to create a carousel item from movie data
-function createCarouselItem(movie) {
-    const director = movie.director ? movie.director : "N/A";
-    const rating = movie.vote_average ? movie.vote_average : "N/A";
 
-    return `
-        <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}" class="d-block w-100 background-img" alt="...">
-            <div class="overlay">
-                <div class="card m-5" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h2 class="card-title">${movie.title}</h2>
-                                <p class="card-text">Director: ${director}</p>
-                                <p>Rating: ${rating}</p>
-                                <img src="assets/Retro-btn.svg">
-                                <img src="assets/Add-btn.svg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+
+$(document).ready(function() {
+    //-------------------------------------------------------------------------------------------------------
+    //Sign Up Form
+    //-------------------------------------------------------------------------------------------------------
+    //On Submit, prevent default form submission behaviour and do this instead.
+    $('#signupForm').submit(function(event) {
+        event.preventDefault();
+        if (this.checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            // Add any code that should run on submit
+            window.location.href = '../pages/homepage.html';
+        }
+        $(this).addClass('was-validated');
+    });
+});
+
+$(document).ready(function() {
+    //-------------------------------------------------------------------------------------------------------
+    //Log In Form
+    //-------------------------------------------------------------------------------------------------------
+    //On Submit, prevent default form submission behaviour and do this instead.
+    $('#loginForm').submit(function(event) {
+        event.preventDefault();
+        if (this.checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            // Add any code that should run on submit
+            window.location.href = '../pages/homepage.html';
+        }
+        $(this).addClass('was-validated');
+    });
+});
+
+const form = document.querySelector('#signUpForm');
+const usernameInput = document.querySelector('#username');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const confirmPasswordInput = document.querySelector('#confirmPassword');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    validateForm();
+});
+
+function validateForm() {
+    //username
+    if(usernameInput.ariaValueMax.trim() == ''){
+        setError(usernameInput, "Name is required");
+    } else if (usernameInput.trim().length < 5){
+        setError(usernameInput, "Name needs to contain a minimum of 3 characters");
+    } else {
+        setSuccess(usernameInput);
+    }
+    //email
+    if(emailInput.ariaValueMax.trim() == ''){
+        setError(emailInput, "Email address is required");
+    } else if (emailInput.trim().value){
+        setError(emailInput, "Provide a valid email address");
+    } else {
+        setSuccess(emailInput);
+    }
+    //password
+    if(passwordInput.ariaValueMax.trim() == ''){
+        setError(passwordInput, "Enter a password");
+    } else if (passwordInput.trim().length < 8){
+        setError(passwordInput, "Password must contain at least 8 characters");
+    } else {
+        setSuccess(passwordInput);
+    }
+    //confirm password
+    if(confirmPasswordInput.ariaValueMax.trim() == ''){
+        setError(confirmPasswordInput, "Enter a password");
+    } else if (confirmPasswordInput.trim().value !== passwordInput.value){
+        setError(confirmPasswordInput, "Password must contain at least 8 characters");
+    } else {
+        setSuccess(confirmPasswordInput);
+    }
 }
 
-$(document).ready(function () {
-    loadWelcomeMovieContent();
-})
 
-// Local Storage username
-// function saveName(username) {
-//     localStorage.setItem('currMovie', JSON.stringify(username));
-// } onclick="saveName(${name.username});"
 
 let userDetails = []
 
@@ -57,3 +102,8 @@ saveUserDetails = () => {
   localStorage.setItem('order', data);
   window.location.href = 'index.html'
 }
+
+// Local Storage username
+// function saveName(username) {
+//     localStorage.setItem('currMovie', JSON.stringify(username));
+// } onclick="saveName(${name.username});"
