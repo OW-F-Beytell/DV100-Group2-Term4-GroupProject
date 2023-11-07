@@ -15,10 +15,6 @@ function loadWatchList() {
 }
 
 function loadCurrMovie() {
-    if(localStorage.getItem('currMovie') === null){
-        currMovieID = null;
-    }
-    else{
         $('#movieInfoContainer').append(`
             <div class="col">
                 <div class="container movieInfo">
@@ -111,7 +107,6 @@ function loadCurrMovie() {
             }
     });
 }
-}
 
 
 
@@ -199,7 +194,7 @@ function createMovieCard(movie) {
                     <div class="card-img-overlay align-items-center">
                             <h3> ${movie.movieTitle}</h3>
                             <p>Director: ${director}<br> Rating: ${rating}</p>
-                            <a href="../pages/individual page.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
+                            <a href="../pages/individualpage.html" class="btn btn-watch" onclick="goToMovie(${movie.movieID});">WATCH NOW</a>
                             <a class="btn btn-watch" onclick="addToWatchList(${movie.movieID});">WATCH LATER</a>
                     </div>
                 </div>
