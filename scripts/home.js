@@ -1,4 +1,4 @@
-//Local storage retieve of username
+//Local storage retrieve of username
 // let userDetails = [];
 // function saveUserDetails() {
 //     if(localStorage.getItem('username') === null){
@@ -86,18 +86,21 @@ function createCarouselItem(movie) {
 //     `;
 
 // }
+function setMovieID(movieID) {
+    localStorage.setItem('currMovie', movieID);
+}
 
 $(document).ready(function () {
     loadWelcomeMovieContent();
 });
 
 function loadWelcomeMovieContent() {
-
+    movieContainer.empty();
     $.ajax({
         url: movieDetailsURL,
         method: 'GET',
         success: function (data) {
-            const movies = data.results.slice(0, 12); // Load only 12 movies
+            const movies = data.results.slice(0, 25); // Load only 25 movies
 
        // Create the carousel items
         // const carouselInner = $('.carousel-inner');

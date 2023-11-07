@@ -120,21 +120,13 @@ $(document).ready(function () {
     loadWatchList();
 });
 
-function createSuggestionRow(){
-    return `
-        <div class="row row-cols-2 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="suggestionContainer">
-            
-        </div>
-    `;
-}
-
 
 function loadSimilarMovies(genres) {
     genres.forEach(function (genre) {
         suggestedMovieContainer.append(`<h4 style="margin-top: 25px;">${genre.name}</h4>`);
         genreName = genre.name;
         suggestedMovieContainer.append(`
-            <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="${genreName}Container" style="margin-top: 0;">
+            <div class="row row-cols-2 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-xs-2 g-4" id="${genreName}Container" style="margin-top: 0;">
                 
             </div>
         `);
@@ -144,7 +136,7 @@ function loadSimilarMovies(genres) {
     
 }
 function callGenresMovies(genre, container) {
-    suggestedGenreURL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre.id}&append_to_response=credits,images`;
+    suggestedGenreURL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&append_to_response=credits,images`;
     $.ajax({
         url: suggestedGenreURL,
         method: 'GET',
