@@ -83,3 +83,19 @@ function removeFromWatchList(movieID) {
   localStorage.setItem('watchList',JSON.stringify(watchlist));
   loadWatchList();
 }
+
+// Event listener for the "Clear All" button to show the confirmation modal
+document.getElementById('clearWatchlistButton').addEventListener('click', function () {
+  $('#clearAllModal').modal('show');
+});
+
+document.getElementById('confirmClearButton').addEventListener('click', function () {
+  // Clear the watchlist from local storage
+  localStorage.removeItem('watchList');
+
+  // Clear the watchlist on the page
+  document.getElementById('movieContainer').innerHTML = 'Your watchlist is empty.';
+
+  // Close the modal
+  $('#clearAllModal').modal('hide');
+});
