@@ -87,8 +87,8 @@ Contributions are what make the open source community such an amazing place to b
 
 * **Nicola Prinsloo** - *Javascript, HTML, main CSS & API* - [Nicola Prinsloo](https://github.com/nicolaprinsloo)
 * **Frederick Beytell** - *Javascript, HTML, CSS & API* - [Frederick Beytell](https://github.com/OW-F-Beytell)
-* **Francois le Roux** - *Javascript, HTML, CSS & API* - [Francois le Roux](https://github.com/nicolaprinsloo)
-* **Jaco Mostert** - *Javascript, HTML, CSS & API* - [Jaco Mostert](https://github.com/nicolaprinsloo)
+* **Francois le Roux** - *Javascript, HTML, CSS & API* - [Francois le Roux](https://github.com/Franna2)
+* **Jaco Mostert** - *Javascript, HTML, CSS & API* - [Jaco Mostert](https://github.com/321008Jaco)
 
 See also the list of [contributors](https://github.com/OW-F-Beytell/DV100-Group2-Term4-GroupProject/graphs/contributors) who participated in this project.
 
